@@ -88,6 +88,11 @@ class Withdrawals extends \miaoxing\plugin\BaseController
                 'accountType' => '账号类型',
                 'account' => '账号',
                 'money' => '提款金额'
+            ],
+            'messages' => [
+                'money' => [
+                    'lessThanOrEqual' => '您的可提款金额不足' . $req['money'],
+                ]
             ]
         ]);
         if (!$validator->isValid()) {

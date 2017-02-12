@@ -213,6 +213,37 @@ class Transaction extends BaseModel
     }
 
     /**
+     * 待审核和待发放的总金额
+     * @param User $user
+     * @return string
+     */
+    public function getFrozenMoney(User $user = null)
+    {
+        $user || $user = wei()->curUser;
+
+        $toAuditMoney = wei()->transaction()
+            ->curApp()
+            ->select('sum(amount) as amountSum')
+            ->andWhere(['type' => Transaction::TYPE_WITHDRAWAL])
+            ->andWhere(['userId' => $user['id']])
+            ->andWhere(['audit' => 0])
+            ->fetch();
+
+        $toTransferMoney = wei()->transaction()
+            ->curApp()
+            ->select('sum(amount) as amountSum')
+            ->andWhere(['type' => Transaction::TYPE_WITHDRAWAL])
+            ->andWhere(['userId' => $user['id']])
+            ->andWhere([
+                'audit' => 1,
+                'passed' => 0
+            ])
+            ->fetch();
+
+        return sprintf('%.2f', abs($toAuditMoney['amountSum'] + $toTransferMoney['amountSum']));
+    }
+
+    /**
      * 获取用户的可提款金额
      *
      * @param User $user

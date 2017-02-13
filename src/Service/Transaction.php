@@ -379,7 +379,7 @@ class Transaction extends BaseModel
         $ret = $this->transfersApi('提现操作');
 
         // 提现失败并且不是因为资金不足而导致转账失败
-        if ($ret['code'] != 1 && $ret['err_code'] != 'NOTENOUGH') {
+        if ($ret['code'] != 1 && strpos($ret['err_code_des'], '请到商户平台充值后再重试') === false) {
             // 更新最后操作人和时间
             $this->save();
             wei()->transactionLog()->save([

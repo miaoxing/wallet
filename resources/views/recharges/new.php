@@ -35,7 +35,7 @@
     $('.js-amount').val($(this).data('amount'));
   });
 
-  require(['plugins/payment/assets/payments', 'jquery-form'], function (payments) {
+  require(['plugins/payment/js/payments', 'jquery-form'], function (payments) {
     $('.js-recharge-form').ajaxForm({
       dataType: 'json',
       loading: true,

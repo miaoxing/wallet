@@ -3,7 +3,7 @@
 namespace Miaoxing\Wallet;
 
 use plugins\mall\services\Order;
-use services\payments\Base;
+use Miaoxing\Payment\Payment\Base;
 
 class Plugin extends \miaoxing\plugin\BasePlugin
 {

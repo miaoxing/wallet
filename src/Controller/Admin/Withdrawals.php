@@ -6,6 +6,14 @@ use Miaoxing\Wallet\Service\Transaction;
 
 class Withdrawals extends \miaoxing\plugin\BaseController
 {
+    protected $controllerName = '提现管理';
+
+    protected $actionPermissions = [
+        'index' => '列表',
+        'audit,auditNoPass' => '审核',
+        'log' => '日志'
+    ];
+
     public function indexAction($req)
     {
         $statuses = wei()->transaction->getStatuses();

@@ -17,7 +17,8 @@ class Withdrawals extends \miaoxing\plugin\BaseController
     public function indexAction($req)
     {
         $statuses = wei()->transaction->getStatuses();
-        $curStatus = array_key_exists($req['status'], $statuses) ? $req['status'] : wei()->transaction->getDefaultStatus();
+        $defaultStatus = wei()->transaction->getDefaultStatus();
+        $curStatus = array_key_exists($req['status'], $statuses) ? $req['status'] : $defaultStatus;
         $curStatusData = $statuses[$curStatus];
 
         switch ($req['_format']) {
@@ -107,9 +108,10 @@ class Withdrawals extends \miaoxing\plugin\BaseController
         $user = wei()->user()->findOrInitById($transaction['userId']);
         $result = $transaction->refund(-$transaction['amount'], [
             'accountType' => $transaction['accountType'],
-            'account' => (string)$transaction['account'],
+            'account' => (string) $transaction['account'],
         ], $user);
         $result['message'] .= '(审核不通过)';
+
         return $this->ret($result);
     }
 
@@ -143,7 +145,8 @@ class Withdrawals extends \miaoxing\plugin\BaseController
                     $ranges = explode('~', strtr($timeRange, '.', '-'));
                     $ranges[0] = date('Y-m-d', strtotime($ranges[0]));
                     $ranges[1] = date('Y-m-d', strtotime($ranges[1])) . ' 23:59:59';
-                    $transactionLogs->andWhere("transactionLogs.createTime" . ' BETWEEN ? AND ?', [$ranges[0], $ranges[1]]);
+                    $transactionLogs->andWhere("transactionLogs.createTime" . ' BETWEEN ? AND ?',
+                        [$ranges[0], $ranges[1]]);
                 }
 
                 $data = array();

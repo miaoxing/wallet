@@ -19,7 +19,9 @@
         <ul class="nav nav-tabs statuses">
           <?php foreach ($statuses as $status => $statusData) : ?>
             <li class="<?= $status ?> <?= $curStatus == $status ? 'active' : '' ?>">
-              <a href="<?= $url('admin/withdrawals', ['status' => $status] + $_GET) ?>"><?= $statusData['name'] ?></a>
+              <a href="<?= $url('admin/withdrawals', ['status' => $status] + $req->getQueries()) ?>">
+                <?= $statusData['name'] ?>
+              </a>
             </li>
           <?php endforeach ?>
         </ul>
@@ -27,7 +29,7 @@
         <div class="well form-well">
           <?php if ($curStatus == 'toBeAudit') : ?>
             <div class="form-group">
-              <select name="moneyLimit" id="moneyLimit" class="form-control">
+              <select name="moneyLimit" id="money-limit" class="form-control">
                 <option value="0">全部</option>
                 <option value="<?= wei()->transaction->getAutoRechargeMoney(); ?>" selected>
                   提现大于等于<?= wei()->transaction->getAutoRechargeMoney(); ?>
@@ -36,7 +38,7 @@
             </div>
           <?php endif ?>
           <div class="form-group">
-            <input type="text" class="form-control" name="<?= $curStatusData['timeField'] ?>Range" id="timeRange"
+            <input type="text" class="form-control" name="<?= $curStatusData['timeField'] ?>Range" id="time-range"
               placeholder="请选择<?= $curStatusData['timeName'] ?>范围">
           </div>
         </div>
@@ -70,7 +72,7 @@
 <script id="operate-col-tpl" type="text/html">
   <div class="action-buttons">
     <% if (audit == '0' && passed == '0') { %>
-    <a class="audit" href="javascript:;" title="审核">
+    <a class="audit" href="javascript:" title="审核">
       操作
     </a>
     <% } else if (audit == '1' && passed == '0'){ %>
@@ -230,7 +232,7 @@
         });
 
         // 时间筛选
-        $('#timeRange').daterangepicker({}, function (start, end) {
+        $('#time-range').daterangepicker({}, function (start, end) {
           this.element.trigger('change');
         });
 

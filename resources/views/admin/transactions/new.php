@@ -12,7 +12,8 @@
 
 <div class="row">
   <div class="col-xs-12">
-    <form class="form-horizontal js-transaction-form" action="<?= $url('admin/transactions/create') ?>" role="form" method="post">
+    <form class="form-horizontal js-transaction-form" action="<?= $url('admin/transactions/create') ?>" role="form"
+      method="post">
       <div class="form-group">
         <label class="col-lg-2 control-label">
           用户
@@ -64,12 +65,12 @@
       </div>
 
       <div class="form-group">
-        <label class="col-lg-2 control-label" for="accountType">
+        <label class="col-lg-2 control-label" for="account-type">
           账户类型
         </label>
 
         <div class="col-lg-4">
-          <select class="form-control" id="accountType" name="accountType">
+          <select class="form-control" id="account-type" name="accountType">
             <option value="">无</option>
             <?php foreach (wei()->transaction->getAccountTypeNames() as $type => $name) : ?>
               <option value="<?= $type ?>"><?= $name ?></option>
@@ -85,11 +86,12 @@
         </label>
 
         <div class="col-lg-4">
-          <textarea placeholder="如线下充值转线上,退款" class="form-control" rows="2" name="note" id="note" data-rule-required="true"></textarea>
+          <textarea placeholder="如线下充值转线上,退款" class="form-control" rows="2" name="note" id="note"
+            data-rule-required="true"></textarea>
         </div>
       </div>
 
-      <input type="hidden" name="userId" id="userId" value="<?= $selectedUser['id'] ?>">
+      <input type="hidden" name="userId" id="user-id" value="<?= $selectedUser['id'] ?>">
 
       <div class="clearfix form-actions form-group">
         <div class="col-lg-offset-2">
@@ -116,7 +118,7 @@
     $('.js-transaction-form')
       .ajaxForm({
         dataType: 'json',
-        beforeSubmit: function(arr, $form, options) {
+        beforeSubmit: function (arr, $form, options) {
           return $form.valid();
         },
         success: function (ret) {

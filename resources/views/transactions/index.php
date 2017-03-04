@@ -1,7 +1,6 @@
 <?php $view->layout() ?>
 
 <ul class="transaction-list list list-indented">
-
 </ul>
 
 <script type="text/html" class="transaction-item-tpl">

@@ -27,13 +27,13 @@
       </div>
 
       <div class="form-group">
-        <label class="col-lg-2 control-label" for="topUp">
+        <label class="col-lg-2 control-label" for="top-up">
           <span class="text-warning">*</span>
           充值金额
         </label>
 
         <div class="col-lg-4">
-          <input type="text" class="form-control" name="topUp" id="topUp" data-rule-required="true">
+          <input type="text" class="form-control" name="topUp" id="top-up" data-rule-required="true">
         </div>
       </div>
 

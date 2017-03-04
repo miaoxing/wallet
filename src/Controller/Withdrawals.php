@@ -16,7 +16,7 @@ class Withdrawals extends \miaoxing\plugin\BaseController
         $curStatusData = $statuses[$curStatus];
 
         $rows = 10;
-        $page = $req['page'] > 0 ? (int)$req['page'] : 1;
+        $page = $req['page'] > 0 ? (int) $req['page'] : 1;
 
         $transactions = wei()->transaction()->curApp()->mine();
 
@@ -44,7 +44,7 @@ class Withdrawals extends \miaoxing\plugin\BaseController
         ];
 
         switch ($req['_format']) {
-            case 'json' :
+            case 'json':
                 return $this->ret($ret);
 
             default:
@@ -52,6 +52,7 @@ class Withdrawals extends \miaoxing\plugin\BaseController
                 $moneySum = sprintf('%.2f', abs($moneySum));
 
                 $headerTitle = '提现记录';
+
                 return get_defined_vars();
         }
     }
@@ -64,6 +65,7 @@ class Withdrawals extends \miaoxing\plugin\BaseController
         $availableMoney = wei()->transaction->getAvailableMoney();
 
         $headerTitle = '申请提款';
+
         return get_defined_vars();
     }
 
@@ -108,7 +110,7 @@ class Withdrawals extends \miaoxing\plugin\BaseController
         // 3. 增加提款单
         $ret = wei()->transaction->withdraw(-$req['money'], [
             'accountType' => $req['accountType'],
-            'account' => (string)$req['account'],
+            'account' => (string) $req['account'],
         ]);
 
         if ($ret['code'] != 1) {
@@ -129,6 +131,7 @@ class Withdrawals extends \miaoxing\plugin\BaseController
         $transaction = wei()->transaction()->curApp()->mine()->findOneById($req['id']);
 
         $headerTitle = '提款详情';
+
         return get_defined_vars();
     }
 

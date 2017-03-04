@@ -13,7 +13,7 @@ class Transactions extends \miaoxing\plugin\BaseController
     public function indexAction($req)
     {
         switch ($req['_format']) {
-            case 'json' :
+            case 'json':
                 $transactions = wei()->transaction()->curApp();
 
                 // 分页
@@ -29,10 +29,10 @@ class Transactions extends \miaoxing\plugin\BaseController
                 }
 
                 // 筛选
-                if(isset($req['type']) && $req['type'] >= 0) {
+                if (isset($req['type']) && $req['type'] >= 0) {
                     $transactions->andWhere(['type' => $req['type']]);
                 }
-                if(isset($req['search']) && $req['search']) {
+                if (isset($req['search']) && $req['search']) {
                     $transactions->andWhere('(note LIKE ?)', [
                         '%' . $req['search'] . '%'
                     ]);

@@ -1,7 +1,7 @@
 <?php
 
-namespace plugins\wallet\docs
-{
+namespace plugins\wallet\docs {
+
     /**
      * @property    \Miaoxing\Wallet\Service\Transaction $transaction 交易记录
      * @method      \Miaoxing\Wallet\Service\Transaction|\Miaoxing\Wallet\Service\Transaction[] transaction()
@@ -15,6 +15,7 @@ namespace plugins\wallet\docs
 }
 
 namespace {
+
     /**
      * @return \plugins\wallet\docs\AutoComplete
      */

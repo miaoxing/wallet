@@ -13,7 +13,7 @@ class Wallets extends \miaoxing\plugin\BaseController
     public function indexAction($req)
     {
         switch ($req['_format']) {
-            case 'json' :
+            case 'json':
                 $users = wei()->user();
 
                 // 分页

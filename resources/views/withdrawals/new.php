@@ -12,15 +12,15 @@
     </div>
   </div>
   <div class="form-group border-top">
-    <label for="accountType" class="control-label">账户类型</label>
+    <label for="account-type" class="control-label">账户类型</label>
 
     <div class="col-control">
-      <select class="form-control" id="accountType" name="accountType">
+      <select class="form-control" id="account-type" name="accountType">
         <?php foreach (wei()->transaction->getAccountTypeNames() as $type => $name) : ?>
           <option value="<?= $type ?>"><?= $name ?></option>
         <?php endforeach ?>
       </select>
-      <a href="javascript:;" class="bm-angle-right form-control-feedback"></a>
+      <a href="javascript:" class="bm-angle-right form-control-feedback"></a>
     </div>
   </div>
   <div class="form-group hide">
@@ -39,7 +39,7 @@
         <span class="input-group-addon border-left">元</span>
         <span class="input-group-btn border-left">
           <button type="button" class="text-primary btn btn-default form-link js-get-all-money">
-             输入全部
+            输入全部
           </button>
         </span>
       </div>
@@ -72,7 +72,7 @@
       }
     });
 
-    $('.js-get-all-money').click(function() {
+    $('.js-get-all-money').click(function () {
       $('.js-money').val($('.js-can-get-money').val());
     });
   });

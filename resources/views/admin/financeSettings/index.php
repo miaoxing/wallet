@@ -8,7 +8,8 @@
 
 <div class="row">
   <div class="col-xs-12">
-    <form action="<?= $url('admin/finance-settings/update') ?>" class="js-setting-form form-horizontal" method="post" role="form">
+    <form action="<?= $url('admin/finance-settings/update') ?>" class="js-setting-form form-horizontal" method="post"
+      role="form">
       <div class="form-group">
         <label class="col-lg-2 control-label" for="balance">
           <span class="text-warning">*</span>
@@ -30,14 +31,15 @@
       </div>
 
       <div class="form-group">
-        <label class="col-lg-2 control-label" for="enableRecharge">
+        <label class="col-lg-2 control-label" for="enable-recharge">
           <span class="text-warning">*</span>
           启用充值
         </label>
 
         <div class="col-lg-4">
           <label class="radio-inline">
-            <input type="radio" class="js-enable-recharge" id="enableRecharge" name="settings[transaction.enableRecharge]" value="1"> 是
+            <input type="radio" class="js-enable-recharge" id="enable-recharge"
+              name="settings[transaction.enableRecharge]" value="1"> 是
           </label>
           <label class="radio-inline">
             <input type="radio" class="js-enable-recharge" name="settings[transaction.enableRecharge]" value="0"> 否
@@ -46,14 +48,15 @@
       </div>
 
       <div class="form-group">
-        <label class="col-lg-2 control-label" for="enableWithdrawal">
+        <label class="col-lg-2 control-label" for="enable-withdrawal">
           <span class="text-warning">*</span>
           启用提现
         </label>
 
         <div class="col-lg-4">
           <label class="radio-inline">
-            <input type="radio" class="js-enable-withdrawal" id="enableWithdrawal" name="settings[transaction.enableWithdrawal]" value="1"> 是
+            <input type="radio" class="js-enable-withdrawal" id="enable-withdrawal"
+              name="settings[transaction.enableWithdrawal]" value="1"> 是
           </label>
           <label class="radio-inline">
             <input type="radio" class="js-enable-withdrawal" name="settings[transaction.enableWithdrawal]" value="0"> 否
@@ -86,7 +89,7 @@
 ]) ?>)
       .ajaxForm({
         dataType: 'json',
-        beforeSubmit: function(arr, $form, options) {
+        beforeSubmit: function (arr, $form, options) {
           return $form.valid();
         }
       })

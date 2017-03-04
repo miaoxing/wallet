@@ -2,6 +2,7 @@
 
 <div class="page-header">
   <a class="btn pull-right btn-success" href="<?= $url('admin/recharges/new') ?>">添加充值模板</a>
+
   <h1>
     充值管理
     <small>
@@ -18,11 +19,11 @@
       <table id="record-table" class="record-table table table-bordered table-hover">
         <thead>
         <tr>
-          <th style="width: 220px">类型</th>
+          <th>类型</th>
           <th>充值金额</th>
-          <th style="width: 220px">奖励</th>
-          <th style="width: 220px">修改时间</th>
-          <th style="width: 220px">操作</th>
+          <th>奖励</th>
+          <th>修改时间</th>
+          <th>操作</th>
         </tr>
         </thead>
         <tbody>
@@ -41,7 +42,8 @@
     <a href="<%= $.url('admin/recharges/edit', {id: id}) %>" title="编辑">
       <i class="fa fa-edit bigger-130"></i>
     </a>
-    <a class="text-danger delete-record" href="javascript:;" data-href="<%= $.url('admin/recharges/delete', {id: id}) %>" title="删除">
+    <a class="text-danger delete-record" href="javascript:"
+      data-href="<%= $.url('admin/recharges/delete', {id: id}) %>" title="删除">
       <i class="fa fa-trash-o bigger-130"></i>
     </a>
   </div>

@@ -18,8 +18,8 @@
           </div>
 
           <div class="form-group">
-            <input type="text" value="<?= $e($req['search']) ?>" class="form-control" name="search" placeholder="请输入备注搜索"
-                   style="width: 330px">
+            <input type="text" value="<?= $e($req['search']) ?>" class="form-control" name="search"
+              placeholder="请输入备注搜索">
           </div>
         </form>
       </div>
@@ -52,7 +52,7 @@
     form.toOptions($('.js-type'), <?= json_encode(wei()->transaction->getConstants('type')) ?>, 'id', 'text');
 
     var recordTable = $('.js-transaction-table').dataTable({
-      sorting : [[0, 'desc']],
+      sorting: [[0, 'desc']],
       ajax: {
         url: $.queryUrl('admin/transactions.json')
       },

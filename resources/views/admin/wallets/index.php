@@ -2,7 +2,7 @@
 
 <div class="page-header">
   <div class="pull-right">
-    <form id="transfer-upload-form" class="form-horizontal" method="post" role="form" style="display: block;">
+    <form id="transfer-upload-form" class="form-horizontal" method="post" role="form">
       <div class="excel-fileinput fileinput fileinput-new" data-provides="fileinput" title="最多只能批量导入100条">
         <span class="btn btn-white btn-file" >
           <span class="fileinput-new" >批量转账</span>
@@ -33,8 +33,8 @@
           </div>
 
           <div class="form-group">
-            <label for="nickName">昵称</label>
-            <input type="text" class="form-control" name="nickName" id="nickName">
+            <label for="nick-name">昵称</label>
+            <input type="text" class="form-control" name="nickName" id="nick-name">
           </div>
         </form>
       </div>

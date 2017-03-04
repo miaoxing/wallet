@@ -18,11 +18,11 @@
       <div class="well form-well">
         <form class="form-inline" id="search-form" role="form">
           <div class="form-group">
-            <input type="text" class="form-control" name="search" placeholder="请输入用户名、手机号码搜索" style="width: 330px">
+            <input type="text" class="form-control" name="search" placeholder="请输入用户名、手机号码搜索">
           </div>
 
           <div class="form-group">
-            <input type="text" class="form-control" name="timeRange" id="timeRange" placeholder="请选择时间范围">
+            <input type="text" class="form-control" name="timeRange" id="time-range" placeholder="请选择时间范围">
           </div>
 
         </form>
@@ -31,10 +31,10 @@
         <thead>
         <tr>
           <th>提款人</th>
-          <th style="width: 160px">操作时间</th>
-          <th style="width: 130px">金额</th>
-          <th style="width: 130px">操作</th>
-          <th style="width: 130px">操作人</th>
+          <th>操作时间</th>
+          <th>金额</th>
+          <th>操作</th>
+          <th>操作人</th>
         </tr>
         </thead>
         <tbody>
@@ -99,7 +99,7 @@
               "1": "审核通过",
               "2": "审核不通过",
               "3": "完成交易"
-            }
+            };
 
             return table[data];
           }
@@ -145,7 +145,7 @@
       }
     });
 
-    $('#timeRange').daterangepicker({}, function (start, end) {
+    $('#time-range').daterangepicker({}, function (start, end) {
       this.element.trigger('change');
     });
   });

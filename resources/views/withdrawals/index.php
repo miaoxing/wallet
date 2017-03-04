@@ -3,7 +3,9 @@
 <ul class="header-tab nav tab-underline border-bottom">
   <?php foreach ($statuses as $status => $statusData) : ?>
     <li class="border-primary <?= $curStatus == $status ? 'active' : '' ?>">
-      <a class="text-active-primary" href="<?= $url('withdrawals', ['status' => $status]) ?>"><?= $statusData['name'] ?></a>
+      <a class="text-active-primary" href="<?= $url('withdrawals', ['status' => $status]) ?>">
+        <?= $statusData['name'] ?>
+      </a>
     </li>
   <?php endforeach ?>
 </ul>

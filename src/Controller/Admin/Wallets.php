@@ -41,15 +41,15 @@ class Wallets extends \miaoxing\plugin\BaseController
                     $users->andWhere('nickName LIKE ?', '%' . $req['nickName'] . '%');
                 }
 
-                $data = array();
+                $data = [];
                 foreach ($users as $user) {
                     $data[] = $user->toArray();
                 }
 
                 return $this->suc([
                     'data' => $data,
-                    'page' => (int)$req['page'],
-                    'rows' => (int)$req['rows'],
+                    'page' => (int) $req['page'],
+                    'rows' => (int) $req['rows'],
                     'records' => $users->count(),
                 ]);
 

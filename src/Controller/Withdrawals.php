@@ -32,7 +32,7 @@ class Withdrawals extends \miaoxing\plugin\BaseController
         foreach ($transactions->findAll() as $transaction) {
             $data[] = $transaction->toArray() + [
                     'statusName' => $transaction->getStatusName(),
-                    'absAmount' => $transaction->getAbsAmount()
+                    'absAmount' => $transaction->getAbsAmount(),
                 ];
         }
 
@@ -83,19 +83,19 @@ class Withdrawals extends \miaoxing\plugin\BaseController
                 'money' => [
                     'greaterThan' => 0,
                     'lessThanOrEqual' => $availableMoney,
-                    'greaterThanOrEqual' => 1
-                ]
+                    'greaterThanOrEqual' => 1,
+                ],
             ],
             'names' => [
                 'accountType' => '账号类型',
                 'account' => '账号',
-                'money' => '提款金额'
+                'money' => '提款金额',
             ],
             'messages' => [
                 'money' => [
                     'lessThanOrEqual' => '您的可提款金额不足' . $req['money'],
-                ]
-            ]
+                ],
+            ],
         ]);
         if (!$validator->isValid()) {
             return $this->err($validator->getFirstMessage());
@@ -118,7 +118,7 @@ class Withdrawals extends \miaoxing\plugin\BaseController
         } else {
             return $this->suc([
                 'message' => '申请成功',
-                'id' => $ret['id']
+                'id' => $ret['id'],
             ]);
         }
     }
@@ -152,16 +152,16 @@ class Withdrawals extends \miaoxing\plugin\BaseController
             'data' => $req,
             'rules' => [
                 'name' => [
-                    'minLength' => 2
+                    'minLength' => 2,
                 ],
                 'idCard' => [
-                    'idCardCn' => true
-                ]
+                    'idCardCn' => true,
+                ],
             ],
             'names' => [
                 'name' => '真实姓名',
-                'idCard' => '身份证号'
-            ]
+                'idCard' => '身份证号',
+            ],
         ]);
 
         if (!$validator->isValid()) {
@@ -170,7 +170,7 @@ class Withdrawals extends \miaoxing\plugin\BaseController
 
         $this->curUser->save([
             'name' => $req['name'],
-            'idCard' => $req['idCard'] // 暂不支持
+            'idCard' => $req['idCard'], // 暂不支持
         ]);
 
         return $this->suc();

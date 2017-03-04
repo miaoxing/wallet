@@ -224,7 +224,7 @@ class Transaction extends BaseModel
         $toAuditMoney = wei()->transaction()
             ->curApp()
             ->select('sum(amount) as amountSum')
-            ->andWhere(['type' => Transaction::TYPE_WITHDRAWAL])
+            ->andWhere(['type' => self::TYPE_WITHDRAWAL])
             ->andWhere(['userId' => $user['id']])
             ->andWhere(['audit' => 0])
             ->fetch();
@@ -232,11 +232,11 @@ class Transaction extends BaseModel
         $toTransferMoney = wei()->transaction()
             ->curApp()
             ->select('sum(amount) as amountSum')
-            ->andWhere(['type' => Transaction::TYPE_WITHDRAWAL])
+            ->andWhere(['type' => self::TYPE_WITHDRAWAL])
             ->andWhere(['userId' => $user['id']])
             ->andWhere([
                 'audit' => 1,
-                'passed' => 0
+                'passed' => 0,
             ])
             ->fetch();
 
@@ -288,7 +288,7 @@ class Transaction extends BaseModel
 
         wei()->event->trigger('postAuditTransfers', [$this]);
 
-        if ($audit == Transaction::AUDIT_NO_PASS) {
+        if ($audit == self::AUDIT_NO_PASS) {
             $user = wei()->user()->findById($this['userId']);
             $this->sendAuditNoPassTplMsg($user);
         }
@@ -330,7 +330,6 @@ class Transaction extends BaseModel
      * 审核结果：{{keyword4.DATA}}
      * 审核时间：{{keyword5.DATA}}
      * {{remark.DATA}}
-     *
      */
     public function getSendAuditNoPassTplData()
     {
@@ -702,7 +701,7 @@ class Transaction extends BaseModel
         $types = [
             static::TYPE_RECHARGE,
             static::TYPE_GIFT,
-            static::TYPE_REFUND
+            static::TYPE_REFUND,
         ];
         if (isset($transaction['type']) && in_array($transaction['type'], $types)) {
             $user['rechargeMoney'] += $money;

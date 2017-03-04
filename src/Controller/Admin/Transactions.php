@@ -34,7 +34,7 @@ class Transactions extends \miaoxing\plugin\BaseController
                 }
                 if (isset($req['search']) && $req['search']) {
                     $transactions->andWhere('(note LIKE ?)', [
-                        '%' . $req['search'] . '%'
+                        '%' . $req['search'] . '%',
                     ]);
                 }
 
@@ -79,23 +79,23 @@ class Transactions extends \miaoxing\plugin\BaseController
             'rules' => [
                 'type' => [
                     'in' => [
-                        'array' => array_keys($typeMethods)
-                    ]
+                        'array' => array_keys($typeMethods),
+                    ],
                 ],
                 'amount' => [
                     'number' => true,
                     'notEqualTo' => '0',
-                ]
+                ],
             ],
             'names' => [
                 'type' => '类型',
-                'amount' => '金额'
+                'amount' => '金额',
             ],
             'messages' => [
                 'type' => [
-                    'in' => '%name%不正确'
-                ]
-            ]
+                    'in' => '%name%不正确',
+                ],
+            ],
         ]);
         if (!$validator->isValid()) {
             return $this->err($validator->getFirstMessage());

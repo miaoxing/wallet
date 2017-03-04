@@ -11,7 +11,7 @@ class Withdrawals extends \miaoxing\plugin\BaseController
     protected $actionPermissions = [
         'index' => '列表',
         'audit,auditNoPass' => '审核',
-        'log' => '日志'
+        'log' => '日志',
     ];
 
     public function indexAction($req)
@@ -22,12 +22,12 @@ class Withdrawals extends \miaoxing\plugin\BaseController
         $curStatusData = $statuses[$curStatus];
 
         switch ($req['_format']) {
-            case 'json' :
+            case 'json':
                 $transactions = wei()->transaction()->curApp();
                 // 提现下限默认为50,只在待审核的时候
-                if ($curStatus == "toBeAudit") {
+                if ($curStatus == 'toBeAudit') {
                     $moneyLimit = isset($req['moneyLimit']) ? $req['moneyLimit'] : 50;
-                    $transactions->andWhere("ABS(transactions.amount) >= ?", $moneyLimit);
+                    $transactions->andWhere('ABS(transactions.amount) >= ?', $moneyLimit);
                 }
 
                 // 分页
@@ -50,7 +50,7 @@ class Withdrawals extends \miaoxing\plugin\BaseController
                     $transactions->andWhere($curStatusData['timeField'] . ' BETWEEN ? AND ?', [$ranges[0], $ranges[1]]);
                 }
 
-                $data = array();
+                $data = [];
                 /** @var \Miaoxing\Wallet\Service\Transaction $transaction */
                 foreach ($transactions as $transaction) {
                     $log = wei()->transactionLog()->desc('id')->findOrInit(['transactionId' => $transaction['id']]);
@@ -72,7 +72,7 @@ class Withdrawals extends \miaoxing\plugin\BaseController
                     'records' => $transactions->count(),
                 ]);
 
-            default :
+            default:
                 return get_defined_vars();
         }
     }
@@ -121,14 +121,14 @@ class Withdrawals extends \miaoxing\plugin\BaseController
     public function logAction($req)
     {
         switch ($req['_format']) {
-            case 'json' :
+            case 'json':
                 $transactionLogs = wei()->transactionLog();
-                $transactionLogs->select("transactionLogs.*");
-                $transactionLogs->leftJoin("user", "transactionLogs.userId = user.id");
+                $transactionLogs->select('transactionLogs.*');
+                $transactionLogs->leftJoin('user', 'transactionLogs.userId = user.id');
 
                 // 分页
                 $transactionLogs->limit($req['rows'])->page($req['page']);
-                $transactionLogs->desc("createTime");
+                $transactionLogs->desc('createTime');
 
                 // 用户名,手机号码搜索
                 if ($req['search']) {
@@ -137,19 +137,19 @@ class Withdrawals extends \miaoxing\plugin\BaseController
                 }
 
                 //交易类型(1提现)
-                $transactionLogs->andWhere("type=?", Transaction::TYPE_WITHDRAWAL);
+                $transactionLogs->andWhere('type=?', Transaction::TYPE_WITHDRAWAL);
 
                 // 时间筛选
-                $timeRange = $req["timeRange"];
+                $timeRange = $req['timeRange'];
                 if ($timeRange) {
                     $ranges = explode('~', strtr($timeRange, '.', '-'));
                     $ranges[0] = date('Y-m-d', strtotime($ranges[0]));
                     $ranges[1] = date('Y-m-d', strtotime($ranges[1])) . ' 23:59:59';
-                    $transactionLogs->andWhere("transactionLogs.createTime" . ' BETWEEN ? AND ?',
+                    $transactionLogs->andWhere('transactionLogs.createTime' . ' BETWEEN ? AND ?',
                         [$ranges[0], $ranges[1]]);
                 }
 
-                $data = array();
+                $data = [];
                 foreach ($transactionLogs as $transactionLog) {
                     $data[] = $transactionLog->toArray() + [
                             'user' => $transactionLog->getUser()->toArray(),
@@ -166,9 +166,8 @@ class Withdrawals extends \miaoxing\plugin\BaseController
                     'records' => $transactionLogs->count(),
                 ]);
 
-            default :
+            default:
                 return get_defined_vars();
         }
     }
-
 }

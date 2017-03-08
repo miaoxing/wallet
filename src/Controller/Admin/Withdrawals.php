@@ -24,9 +24,11 @@ class Withdrawals extends \miaoxing\plugin\BaseController
         switch ($req['_format']) {
             case 'json':
                 $transactions = wei()->transaction()->curApp();
-                // 提现下限默认为50,只在待审核的时候
+
+                // 只在待审核的时候筛选提现下限
                 if ($curStatus == 'toBeAudit') {
-                    $moneyLimit = isset($req['moneyLimit']) ? $req['moneyLimit'] : 50;
+                    $autoRechargeMoney = wei()->transaction->getAutoRechargeMoney();
+                    $moneyLimit = isset($req['moneyLimit']) ? $req['moneyLimit'] : $autoRechargeMoney;
                     $transactions->andWhere('ABS(transactions.amount) >= ?', $moneyLimit);
                 }
 

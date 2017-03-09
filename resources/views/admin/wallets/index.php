@@ -68,7 +68,7 @@
 
 <?= $block('js') ?>
 <script>
-  require(['dataTable', 'form', 'jquery-deparam','plugins/excel/assets/excel'], function () {
+  require(['dataTable', 'form', 'jquery-deparam','plugins/excel/js/excel'], function () {
     var recordTable = $('.js-wallet-table').dataTable({
       sorting : [[0, 'desc']],
       ajax: {

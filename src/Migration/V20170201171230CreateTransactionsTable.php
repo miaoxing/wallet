@@ -26,8 +26,8 @@ class V20170201171230CreateTransactionsTable extends BaseMigration
             ->bool('passed')
             ->timestamp('passTime')
             ->string('note', 64)->comment('备注')
-            ->timestamps()
-            ->userstamps()
+            ->timestampsV1()
+            ->userstampsV1()
             ->exec();
     }
 

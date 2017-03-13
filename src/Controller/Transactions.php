@@ -7,7 +7,7 @@ class Transactions extends \miaoxing\plugin\BaseController
     public function indexAction($req)
     {
         $rows = 10;
-        $page = $req['page'] > 0 ? (int)$req['page'] : 1;
+        $page = $req['page'] > 0 ? (int) $req['page'] : 1;
 
         $transactions = wei()->transaction()->curApp()->mine();
 
@@ -31,12 +31,12 @@ class Transactions extends \miaoxing\plugin\BaseController
         ];
 
         switch ($req['_format']) {
-            case 'json' :
+            case 'json':
                 return $this->ret($ret);
 
-            default :
-
+            default:
                 $headerTitle = '余额明细';
+
                 return get_defined_vars();
         }
     }
@@ -46,6 +46,7 @@ class Transactions extends \miaoxing\plugin\BaseController
         $transaction = wei()->transaction()->curApp()->mine()->findOneById($req['id']);
 
         $headerTitle = '余额详情';
+
         return get_defined_vars();
     }
 }

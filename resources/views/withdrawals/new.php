@@ -2,12 +2,12 @@
 
 <form class="form js-withdrawal-form" method="post" action="<?= $url('withdrawals/create') ?>">
   <div class="form-group">
-    <label for="money" class="control-label">
+    <label class="control-label">
       可提款金额
     </label>
 
     <div class="col-control">
-      <input type="text" id="money" class="form-control" readonly value="<?= $availableMoney ?>元">
+      <input type="text" class="form-control" readonly value="<?= $availableMoney ?>元">
       <input type="hidden" name="availableMoney" class="form-control js-can-get-money" value="<?= $availableMoney ?>">
     </div>
   </div>

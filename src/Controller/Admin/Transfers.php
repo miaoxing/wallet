@@ -4,14 +4,6 @@ namespace Miaoxing\Wallet\Controller\Admin;
 
 class Transfers extends \miaoxing\plugin\BaseController
 {
-    /*
-    protected $controllerName = '转账管理';
-
-    protected $actionPermissions = [
-        'upload' => '批量转账',
-    ];
-    */
-
     /**
      * 最大的批量转账数量
      */

@@ -117,9 +117,11 @@ class Withdrawals extends \miaoxing\plugin\BaseController
         return $this->ret($result);
     }
 
-    /*
+    /**
      * 提款日志
-     * */
+     * @param $req
+     * @return array
+     */
     public function logAction($req)
     {
         switch ($req['_format']) {
@@ -134,8 +136,10 @@ class Withdrawals extends \miaoxing\plugin\BaseController
 
                 // 用户名,手机号码搜索
                 if ($req['search']) {
-                    $transactionLogs->andWhere('(user.nickName LIKE ?) OR (user.mobile LIKE ?)',
-                        ["%{$req['search']}%", "%{$req['search']}%"]);
+                    $transactionLogs->andWhere('(user.nickName LIKE ?) OR (user.mobile LIKE ?)', [
+                        "%{$req['search']}%",
+                        "%{$req['search']}%"
+                    ]);
                 }
 
                 //交易类型(1提现)
@@ -147,8 +151,10 @@ class Withdrawals extends \miaoxing\plugin\BaseController
                     $ranges = explode('~', strtr($timeRange, '.', '-'));
                     $ranges[0] = date('Y-m-d', strtotime($ranges[0]));
                     $ranges[1] = date('Y-m-d', strtotime($ranges[1])) . ' 23:59:59';
-                    $transactionLogs->andWhere('transactionLogs.createTime' . ' BETWEEN ? AND ?',
-                        [$ranges[0], $ranges[1]]);
+                    $transactionLogs->andWhere('transactionLogs.createTime BETWEEN ? AND ?', [
+                        $ranges[0],
+                        $ranges[1]
+                    ]);
                 }
 
                 $data = [];

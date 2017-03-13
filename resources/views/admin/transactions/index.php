@@ -27,14 +27,14 @@
       <table class="js-transaction-table record-table table table-bordered table-hover">
         <thead>
         <tr>
-          <th style="width: 200px">用户</th>
+          <th class="t-12">用户</th>
           <th>类型</th>
           <th>金额</th>
           <th>余额</th>
           <th>账户类型</th>
-          <th style="width: 140px">创建时间</th>
+          <th class="t-12">创建时间</th>
           <th>操作人</th>
-          <th style="width: 120px">操作说明</th>
+          <th class="t-8">操作说明</th>
         </tr>
         </thead>
         <tbody>

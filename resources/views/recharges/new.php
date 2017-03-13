@@ -8,8 +8,8 @@
   <ul class="recharge-list list-unstyled m-t-sm">
     <?php foreach ($recharges as $i => $recharge) : ?>
       <li class="js-recharge-item recharge-item">
-        <span
-          class="js-recharge-btn recharge-btn flex flex-center flex-y text-active-primary border-active-primary <?= $i == 0 ? 'active' : '' ?>"
+        <span class="js-recharge-btn recharge-btn flex flex-center flex-y text-active-primary border-active-primary
+          <?= $i == 0 ? 'active' : '' ?>"
           data-amount="<?= $recharge['topUp'] ?>">
           <?= $recharge['topUp'] ?>元
           <span class="recharge-bonus">送<?= $recharge['bonus'] ?>元</span>

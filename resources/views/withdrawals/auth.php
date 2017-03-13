@@ -12,10 +12,10 @@
     </div>
   </div>
   <div class="form-group">
-    <label for="idCard" class="control-label">身份证号</label>
+    <label for="id-card" class="control-label">身份证号</label>
 
     <div class="col-control">
-      <input type="text" class="form-control" id="idCard" name="idCard" placeholder="15或18位数字">
+      <input type="text" class="form-control" id="id-card" name="idCard" placeholder="15或18位数字">
     </div>
   </div>
   <div class="form-group form-actions">

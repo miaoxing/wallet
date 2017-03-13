@@ -18,7 +18,7 @@
 
         <ul class="nav nav-tabs statuses">
           <?php foreach ($statuses as $status => $statusData) : ?>
-            <li class="<?= $status ?> <?= $curStatus == $status ? 'active' : '' ?>">
+            <li class="<?= $curStatus == $status ? 'active' : '' ?>" >
               <a href="<?= $url('admin/withdrawals', ['status' => $status] + $req->getQueries()) ?>">
                 <?= $statusData['name'] ?>
               </a>

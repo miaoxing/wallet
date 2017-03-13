@@ -19,7 +19,7 @@ class Transactions extends \miaoxing\plugin\BaseController
         foreach ($transactions->findAll() as $transaction) {
             $data[] = $transaction->toArray() + [
                     'typeName' => $transaction->getTypeText(),
-                    'absAmount' => $transaction->getAbsAmount()
+                    'absAmount' => $transaction->getAbsAmount(),
                 ];
         }
 

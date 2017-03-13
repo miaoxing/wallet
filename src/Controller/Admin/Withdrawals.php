@@ -138,7 +138,7 @@ class Withdrawals extends \miaoxing\plugin\BaseController
                 if ($req['search']) {
                     $transactionLogs->andWhere('(user.nickName LIKE ?) OR (user.mobile LIKE ?)', [
                         "%{$req['search']}%",
-                        "%{$req['search']}%"
+                        "%{$req['search']}%",
                     ]);
                 }
 
@@ -153,7 +153,7 @@ class Withdrawals extends \miaoxing\plugin\BaseController
                     $ranges[1] = date('Y-m-d', strtotime($ranges[1])) . ' 23:59:59';
                     $transactionLogs->andWhere('transactionLogs.createTime BETWEEN ? AND ?', [
                         $ranges[0],
-                        $ranges[1]
+                        $ranges[1],
                     ]);
                 }
 

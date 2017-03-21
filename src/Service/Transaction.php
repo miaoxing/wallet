@@ -11,7 +11,7 @@ use Miaoxing\Plugin\Service\User;
  */
 class Transaction extends BaseModel
 {
-    use \Miaoxing\App\Constant;
+    use \Miaoxing\Plugin\Constant;
 
     /**
      * 付款

@@ -566,7 +566,7 @@ class Transaction extends BaseModel
     {
         // 商户订单号加上时间,目前已知余额不足后,再次使用相同的ID,微信会返回"SYSTEMERROR"
         $data = [
-            'partner_trade_no' => $this['id'] . '-' . time(),
+            'partner_trade_no' => 't' . $this['id'] . time(),
             'openid' => $this->getUser()->get('wechatOpenId'),
             'amount' => abs($this['amount'] * 100),
             'desc' => $content,

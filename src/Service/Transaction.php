@@ -851,8 +851,8 @@ class Transaction extends BaseModel
     /**
      * Repo: 根据金额获取充值奖励规则
      *
-     * @param string $amount
-     * @return bool
+     * @param $amount
+     * @return array|bool
      */
     public function getRechargeRuleByAmount($amount)
     {

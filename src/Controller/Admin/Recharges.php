@@ -8,22 +8,22 @@ class Recharges extends \miaoxing\plugin\BaseController
     {
         switch ($req['_format']) {
             case 'json':
-                $recharges = (array)json_decode(wei()->setting('wallet.recharge'), true);
+                $recharges = (array) json_decode(wei()->setting('wallet.recharge'), true);
                 $data = array();
-                $i = 0;
+                $id = 0;
                 foreach ($recharges as $recharge) {
                     $data[] = $recharge + [
-                            'id' => $i,
+                            'id' => $id,
                             'type' => '充值'
                         ];
-                    ++$i;
+                    ++$id;
                 }
 
                 return $this->suc([
                     'data' => $data,
-                    'page' => (int)$req['page'],
-                    'rows' => (int)$req['rows'],
-                    'records' => $i
+                    'page' => (int) $req['page'],
+                    'rows' => (int) $req['rows'],
+                    'records' => count($recharges)
                 ]);
 
             default:
@@ -44,6 +44,7 @@ class Recharges extends \miaoxing\plugin\BaseController
         if ($recharge == 'null') {
             $recharge = '{}';
         }
+
         return get_defined_vars();
     }
 
@@ -55,6 +56,7 @@ class Recharges extends \miaoxing\plugin\BaseController
         $recharges[$req['id']]['updateTime'] = date('Y-m-d H:i:s', time());
         $rechargesJson = json_encode($recharges, JSON_FORCE_OBJECT);
         wei()->setting->setValue('wallet.recharge', $rechargesJson);
+
         return $this->suc('更新成功');
     }
 
@@ -62,14 +64,14 @@ class Recharges extends \miaoxing\plugin\BaseController
     {
         $recharges = json_decode(wei()->setting('wallet.recharge'), true);
         $data = array();
-        $i = 0;
+        $id = 0;
         foreach ($recharges as $recharge) {
-            if ($i == $req['id']) {
-                ++$i;
+            if ($id == $req['id']) {
+                ++$id;
                 continue;
             }
             $data[] = $recharge;
-            ++$i;
+            ++$id;
         }
         $rechargesJson = json_encode($data, JSON_FORCE_OBJECT);
         wei()->setting->setValue('wallet.recharge', $rechargesJson);

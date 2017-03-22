@@ -9,12 +9,12 @@ class Recharges extends \miaoxing\plugin\BaseController
         switch ($req['_format']) {
             case 'json':
                 $recharges = (array) json_decode(wei()->setting('wallet.recharge'), true);
-                $data = array();
+                $data = [];
                 $id = 0;
                 foreach ($recharges as $recharge) {
                     $data[] = $recharge + [
                             'id' => $id,
-                            'type' => '充值'
+                            'type' => '充值',
                         ];
                     ++$id;
                 }
@@ -23,7 +23,7 @@ class Recharges extends \miaoxing\plugin\BaseController
                     'data' => $data,
                     'page' => (int) $req['page'],
                     'rows' => (int) $req['rows'],
-                    'records' => count($recharges)
+                    'records' => count($recharges),
                 ]);
 
             default:
@@ -63,7 +63,7 @@ class Recharges extends \miaoxing\plugin\BaseController
     public function deleteAction($req)
     {
         $recharges = json_decode(wei()->setting('wallet.recharge'), true);
-        $data = array();
+        $data = [];
         $id = 0;
         foreach ($recharges as $recharge) {
             if ($id == $req['id']) {

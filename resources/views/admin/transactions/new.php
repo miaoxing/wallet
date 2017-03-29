@@ -59,7 +59,7 @@
           </div>
         </div>
 
-        <label class="col-lg-6 help-text" for="maxPayScores">
+        <label class="col-lg-6 help-text" for="amount">
           收入请输入大于0的数字,支出请输入小于0的数字
         </label>
       </div>

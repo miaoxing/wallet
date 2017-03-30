@@ -38,7 +38,7 @@ class Plugin extends \miaoxing\plugin\BasePlugin
             ];
         }
 
-        if (wei()->setting('transaction.enableTransactions')) {
+        if (wei()->setting('transaction.enableTransaction')) {
             $navs[] = [
                 'parentId' => 'finance',
                 'url' => 'admin/transactions',

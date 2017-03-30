@@ -29,19 +29,23 @@ class Plugin extends \miaoxing\plugin\BasePlugin
             'icon' => 'fa fa-money',
         ];
 
-        $navs[] = [
-            'parentId' => 'finance',
-            'url' => 'admin/wallets',
-            'name' => '用户钱包管理',
-            'sort' => 500,
-        ];
+        if (wei()->setting('transaction.enableWallet')) {
+            $navs[] = [
+                'parentId' => 'finance',
+                'url' => 'admin/wallets',
+                'name' => '用户钱包管理',
+                'sort' => 500,
+            ];
+        }
 
-        $navs[] = [
-            'parentId' => 'finance',
-            'url' => 'admin/transactions',
-            'name' => '余额明细',
-            'sort' => 400,
-        ];
+        if (wei()->setting('transaction.enableTransactions')) {
+            $navs[] = [
+                'parentId' => 'finance',
+                'url' => 'admin/transactions',
+                'name' => '余额明细',
+                'sort' => 400,
+            ];
+        }
 
         if (wei()->setting('transaction.enableWithdrawal')) {
             $navs[] = [
@@ -68,12 +72,14 @@ class Plugin extends \miaoxing\plugin\BasePlugin
             'sort' => 0,
         ];
 
-        $navs[] = [
-            'parentId' => 'finance-setting',
-            'url' => 'admin/finance-settings',
-            'name' => '功能设置',
-            'sort' => 0,
-        ];
+        if (wei()->setting('transaction.enableSetting')) {
+            $navs[] = [
+                'parentId' => 'finance-setting',
+                'url' => 'admin/finance-settings',
+                'name' => '功能设置',
+                'sort' => 0,
+            ];
+        }
     }
 
     public function onLinkToGetLinks(&$links, &$types)

@@ -475,7 +475,7 @@ class Transaction extends BaseModel
      */
     public function getAutoRechargeMoney()
     {
-        return $this->autoRechargeMoney;
+        return wei()->setting('transaction.autoRechargeMoney') ?: $this->autoRechargeMoney;
     }
 
     /**

@@ -2,10 +2,10 @@
 
 <div class="page-header">
   <h1>
-    提款管理
+    提现管理
     <small>
       <i class="fa fa-angle-double-right"></i>
-      提款列表
+      提现列表
     </small>
   </h1>
 </div>

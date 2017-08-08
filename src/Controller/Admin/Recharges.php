@@ -53,7 +53,7 @@ class Recharges extends \miaoxing\plugin\BaseController
 
         foreach ($recharges as $recharge) {
             if ($recharge['topUp'] == $req['topUp']) {
-                return $this->err('已存在相同的充值金额');
+                return $this->err('已存在相同的充值金额，请检查更新');
             }
         }
 

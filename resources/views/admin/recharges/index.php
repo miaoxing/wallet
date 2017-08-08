@@ -19,7 +19,6 @@
       <table id="record-table" class="record-table table table-bordered table-hover">
         <thead>
         <tr>
-          <th>类型</th>
           <th>充值金额</th>
           <th>奖励</th>
           <th>修改时间</th>
@@ -57,9 +56,6 @@
         url: $.queryUrl('admin/recharges.json')
       },
       columns: [
-        {
-          data: 'type'
-        },
         {
           data: 'topUp'
         },

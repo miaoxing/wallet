@@ -14,18 +14,6 @@
   <div class="col-xs-12">
     <!-- PAGE CONTENT BEGINS -->
     <form id="recharge-form" class="form-horizontal" method="post" role="form">
-
-      <div class="form-group">
-        <label class="col-lg-2 control-label" for="recordTable">
-          <span class="text-warning">*</span>
-          类型
-        </label>
-
-        <div class="col-lg-4">
-            充值
-        </div>
-      </div>
-
       <div class="form-group">
         <label class="col-lg-2 control-label" for="top-up">
           <span class="text-warning">*</span>

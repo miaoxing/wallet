@@ -14,7 +14,6 @@ class Recharges extends \miaoxing\plugin\BaseController
                 foreach ($recharges as $recharge) {
                     $data[] = $recharge + [
                             'id' => $id,
-                            'type' => '充值',
                         ];
                     ++$id;
                 }
@@ -51,6 +50,13 @@ class Recharges extends \miaoxing\plugin\BaseController
     public function updateAction($req)
     {
         $recharges = json_decode(wei()->setting('wallet.recharge'), true);
+
+        foreach ($recharges as $recharge) {
+            if ($recharge['topUp'] == $req['topUp']) {
+                return $this->err('已存在相同的充值金额');
+            }
+        }
+
         $recharges[$req['id']]['topUp'] = $req['topUp'];
         $recharges[$req['id']]['bonus'] = $req['bonus'];
         $recharges[$req['id']]['updateTime'] = date('Y-m-d H:i:s', time());

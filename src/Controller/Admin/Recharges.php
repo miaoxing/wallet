@@ -51,8 +51,8 @@ class Recharges extends \miaoxing\plugin\BaseController
     {
         $recharges = (array) json_decode(wei()->setting('wallet.recharge'), true);
 
-        foreach ($recharges as $recharge) {
-            if ($recharge['topUp'] == $req['topUp']) {
+        foreach ($recharges as $id => $recharge) {
+            if ($req['id'] != $id && $recharge['topUp'] == $req['topUp']) {
                 return $this->err('已存在相同的充值金额，请检查更新');
             }
         }

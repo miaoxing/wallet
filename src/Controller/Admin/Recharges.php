@@ -49,7 +49,7 @@ class Recharges extends \miaoxing\plugin\BaseController
 
     public function updateAction($req)
     {
-        $recharges = json_decode(wei()->setting('wallet.recharge'), true);
+        $recharges = (array) json_decode(wei()->setting('wallet.recharge'), true);
 
         foreach ($recharges as $recharge) {
             if ($recharge['topUp'] == $req['topUp']) {
@@ -68,7 +68,7 @@ class Recharges extends \miaoxing\plugin\BaseController
 
     public function deleteAction($req)
     {
-        $recharges = json_decode(wei()->setting('wallet.recharge'), true);
+        $recharges = (array) json_decode(wei()->setting('wallet.recharge'), true);
         $data = [];
         $id = 0;
         foreach ($recharges as $recharge) {

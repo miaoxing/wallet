@@ -29,7 +29,7 @@
 
           <div class="form-group">
             <label for="contact">手机号码</label>
-            <input type="text" class="form-control" name="contact" id="contact">
+            <input type="text" class="form-control" name="mobile" id="mobile">
           </div>
 
           <div class="form-group">

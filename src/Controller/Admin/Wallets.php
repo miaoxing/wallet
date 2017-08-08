@@ -24,17 +24,12 @@ class Wallets extends \miaoxing\plugin\BaseController
                 $order = $req['order'] == 'asc' ? 'ASC' : 'DESC';
                 $users->orderBy($sort, $order);
 
-                if ($req['name'] || $req['contact']) {
-                    $users->select('DISTINCT user.*')
-                        ->leftJoin('address', 'user.id = address.userId');
-                }
-
                 if ($req['name']) {
-                    $users->andWhere('address.name LIKE ?', '%' . $req['name'] . '%');
+                    $users->andWhere('name LIKE ?', '%' . $req['name'] . '%');
                 }
 
-                if ($req['contact']) {
-                    $users->andWhere('address.contact LIKE ?', '%' . $req['contact'] . '%');
+                if ($req['mobile']) {
+                    $users->andWhere('mobile LIKE ?', '%' . $req['mobile'] . '%');
                 }
 
                 if ($req['nickName']) {

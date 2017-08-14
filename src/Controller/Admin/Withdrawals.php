@@ -108,9 +108,10 @@ class Withdrawals extends \miaoxing\plugin\BaseController
     {
         $transaction = wei()->transaction()->findOneById($req['id']);
         $user = wei()->user()->findOrInitById($transaction['userId']);
-        $result = $transaction->refund(-$transaction['amount'], [
+        $result = $transaction->transfer(-$transaction['amount'], [
             'accountType' => $transaction['accountType'],
             'account' => (string) $transaction['account'],
+            'note' => '提现不通过返还'
         ], $user);
         $result['message'] .= '(审核不通过)';
 

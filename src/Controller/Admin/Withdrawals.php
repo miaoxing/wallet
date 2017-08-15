@@ -111,7 +111,7 @@ class Withdrawals extends \miaoxing\plugin\BaseController
         $result = $transaction->transfer(-$transaction['amount'], [
             'accountType' => $transaction['accountType'],
             'account' => (string) $transaction['account'],
-            'note' => '提现不通过返还'
+            'note' => '提现不通过返还',
         ], $user);
         $result['message'] .= '(审核不通过)';
 

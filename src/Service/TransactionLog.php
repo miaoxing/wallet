@@ -2,7 +2,7 @@
 
 namespace Miaoxing\Wallet\Service;
 
-use miaoxing\plugin\BaseModel;
+use Miaoxing\Plugin\BaseModel;
 
 class TransactionLog extends BaseModel
 {

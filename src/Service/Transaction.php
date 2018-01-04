@@ -2,7 +2,7 @@
 
 namespace Miaoxing\Wallet\Service;
 
-use miaoxing\plugin\BaseModel;
+use Miaoxing\Plugin\BaseModel;
 use Miaoxing\Plugin\Service\User;
 
 /**

@@ -2,7 +2,7 @@
 
 namespace Miaoxing\Wallet\Controller\Admin;
 
-class Transactions extends \miaoxing\plugin\BaseController
+class Transactions extends \Miaoxing\Plugin\BaseController
 {
     protected $controllerName = '余额明细';
 

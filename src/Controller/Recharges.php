@@ -4,7 +4,7 @@ namespace Miaoxing\Wallet\Controller;
 
 use Miaoxing\Wallet\Plugin;
 
-class Recharges extends \miaoxing\plugin\BaseController
+class Recharges extends \Miaoxing\Plugin\BaseController
 {
     public function newAction()
     {

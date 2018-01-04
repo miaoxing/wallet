@@ -2,7 +2,7 @@
 
 namespace Miaoxing\Wallet\Controller;
 
-class Transactions extends \miaoxing\plugin\BaseController
+class Transactions extends \Miaoxing\Plugin\BaseController
 {
     public function indexAction($req)
     {

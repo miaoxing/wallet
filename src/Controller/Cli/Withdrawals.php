@@ -4,7 +4,7 @@ namespace Miaoxing\Wallet\Controller\Cli;
 
 use Miaoxing\Wallet\Service\Transaction;
 
-class Withdrawals extends \miaoxing\plugin\BaseController
+class Withdrawals extends \Miaoxing\Plugin\BaseController
 {
     /**
      * 较小金额直接转账,小于指定金额,在1小时前提交申请的提款

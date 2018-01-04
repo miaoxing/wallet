@@ -4,7 +4,7 @@ namespace Miaoxing\Wallet\Controller;
 
 use Miaoxing\Wallet\Service\Transaction;
 
-class Withdrawals extends \miaoxing\plugin\BaseController
+class Withdrawals extends \Miaoxing\Plugin\BaseController
 {
     public function indexAction($req)
     {

@@ -2,7 +2,7 @@
 
 namespace Miaoxing\Wallet\Controller\admin;
 
-class Wallets extends \miaoxing\plugin\BaseController
+class Wallets extends \Miaoxing\Plugin\BaseController
 {
     protected $controllerName = '钱包管理';
 

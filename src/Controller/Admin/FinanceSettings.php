@@ -2,7 +2,7 @@
 
 namespace Miaoxing\Wallet\Controller\Admin;
 
-class FinanceSettings extends \miaoxing\plugin\BaseController
+class FinanceSettings extends \Miaoxing\Plugin\BaseController
 {
     protected $controllerName = '财务功能设置';
 

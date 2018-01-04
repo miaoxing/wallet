@@ -2,7 +2,7 @@
 
 namespace Miaoxing\Wallet\Controller\Admin;
 
-class Transfers extends \miaoxing\plugin\BaseController
+class Transfers extends \Miaoxing\Plugin\BaseController
 {
     /**
      * 最大的批量转账数量

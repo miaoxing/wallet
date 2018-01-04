@@ -2,7 +2,7 @@
 
 namespace Miaoxing\Wallet\Controller\Admin;
 
-class Recharges extends \miaoxing\plugin\BaseController
+class Recharges extends \Miaoxing\Plugin\BaseController
 {
     public function indexAction($req)
     {

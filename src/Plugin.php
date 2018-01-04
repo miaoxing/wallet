@@ -5,7 +5,7 @@ namespace Miaoxing\Wallet;
 use Miaoxing\Order\Service\Order;
 use Miaoxing\Payment\Payment\Base;
 
-class Plugin extends \miaoxing\plugin\BasePlugin
+class Plugin extends \Miaoxing\Plugin\BasePlugin
 {
     /**
      * 充值的订单分类ID

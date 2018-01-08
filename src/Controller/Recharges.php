@@ -21,6 +21,7 @@ class Recharges extends \Miaoxing\Plugin\BaseController
             ->findAll();
 
         $headerTitle = '充值';
+
         return get_defined_vars();
     }
 
@@ -47,7 +48,7 @@ class Recharges extends \Miaoxing\Plugin\BaseController
                 'quantity' => 1000000000,
                 'price' => $req['amount'],
                 'images' => [
-                    '/plugins/wallet/images/recharge.png'
+                    '/plugins/wallet/images/recharge.png',
                 ],
                 'visible' => false,
                 'detail' => '请勿更改或删除',
@@ -68,7 +69,7 @@ class Recharges extends \Miaoxing\Plugin\BaseController
         $order = wei()->order();
         $ret = $order->createFromSkus([[
             'skuId' => $firstSku['id'],
-            'quantity' => 1
+            'quantity' => 1,
         ]], [
             'payType' => $req['payType'],
             'categoryId' => Plugin::RECHARGE_ORDER_CATEGORY_ID,

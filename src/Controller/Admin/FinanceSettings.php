@@ -19,7 +19,8 @@ class FinanceSettings extends \Miaoxing\Plugin\BaseController
     {
         // TODO 1. 配置改为统一的前缀
         // TODO 2. Setting功能是差不多的,可以改为只有一个页面,tab切换?
-        $this->setting->setValues((array)$req['settings'], ['payments.', 'transaction.']);
+        $this->setting->setValues((array) $req['settings'], ['payments.', 'transaction.']);
+
         return $this->suc();
     }
 }

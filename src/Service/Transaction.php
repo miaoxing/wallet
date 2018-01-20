@@ -11,7 +11,7 @@ use Miaoxing\Plugin\Service\User;
  */
 class Transaction extends BaseModel
 {
-    use \Miaoxing\Plugin\Constant;
+    use \Miaoxing\Plugin\ConstTrait;
 
     /**
      * 付款
@@ -582,7 +582,7 @@ class Transaction extends BaseModel
      */
     public function getTypeMethods()
     {
-        return wei()->coll->column($this->getConstants('type'), 'method');
+        return wei()->coll->column($this->getConsts('type'), 'method');
     }
 
     /**
@@ -590,7 +590,7 @@ class Transaction extends BaseModel
      */
     public function getTypeText()
     {
-        return $this->getConstantValue('type', $this['type'], 'text');
+        return $this->getConstValue('type', $this['type'], 'text');
     }
 
     /**

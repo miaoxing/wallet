@@ -49,7 +49,7 @@
 <?= $block('js') ?>
 <script>
   require(['form', 'dataTable', 'jquery-deparam'], function (form) {
-    form.toOptions($('.js-type'), <?= json_encode(wei()->transaction->getConstants('type')) ?>, 'id', 'text');
+    form.toOptions($('.js-type'), <?= json_encode(wei()->transaction->getConsts('type')) ?>, 'id', 'text');
 
     var recordTable = $('.js-transaction-table').dataTable({
       sorting: [[0, 'desc']],

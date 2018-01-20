@@ -113,7 +113,7 @@
 <?= $block('js') ?>
 <script>
   require(['form', 'validator'], function (form) {
-    form.toOptions($('.js-type'), <?= json_encode(wei()->transaction->getConstants('type')) ?>, 'id', 'text');
+    form.toOptions($('.js-type'), <?= json_encode(wei()->transaction->getConsts('type')) ?>, 'id', 'text');
 
     $('.js-transaction-form')
       .ajaxForm({

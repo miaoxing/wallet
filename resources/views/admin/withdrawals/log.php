@@ -66,7 +66,7 @@
 </script>
 
 
-<?= $block('js') ?>
+<?= $block->js() ?>
 <script>
   require(['dataTable', 'jquery-deparam', 'form', 'daterangepicker'], function () {
     $('#search-form').loadParams().update(function () {

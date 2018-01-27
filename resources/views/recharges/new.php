@@ -1,6 +1,6 @@
 <?php $view->layout() ?>
 
-<?= $block('css') ?>
+<?= $block->css() ?>
 <link rel="stylesheet" href="<?= $asset('plugins/wallet/css/recharges.css') ?>">
 <?= $block->end() ?>
 
@@ -27,7 +27,7 @@
   </div>
 </form>
 
-<?= $block('js') ?>
+<?= $block->js() ?>
 <script>
   $('.js-recharge-btn').click(function () {
     $('.js-recharge-btn').removeClass('active');

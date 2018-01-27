@@ -46,7 +46,7 @@
 
 <?php require $this->getFile('user:admin/user/richInfo.php') ?>
 
-<?= $block('js') ?>
+<?= $block->js() ?>
 <script>
   require(['form', 'dataTable', 'jquery-deparam'], function (form) {
     form.toOptions($('.js-type'), <?= json_encode(wei()->transaction->getConsts('type')) ?>, 'id', 'text');

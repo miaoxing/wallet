@@ -54,7 +54,7 @@
   注意：充值金额不能提现。
 </p>
 
-<?= $block('js') ?>
+<?= $block->js() ?>
 <script>
   require(['assets/numeric', 'jquery-form'], function (numeric) {
     $('.js-money').change(function () {

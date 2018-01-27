@@ -66,7 +66,7 @@
   <a href="<%= $.url('admin/transactions/new', {userId: id}) %>">更改</a>
 </script>
 
-<?= $block('js') ?>
+<?= $block->js() ?>
 <script>
   require(['dataTable', 'form', 'jquery-deparam','plugins/excel/js/excel'], function () {
     var recordTable = $('.js-wallet-table').dataTable({

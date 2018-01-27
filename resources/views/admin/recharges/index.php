@@ -48,7 +48,7 @@
   </div>
 </script>
 
-<?= $block('js') ?>
+<?= $block->js() ?>
 <script>
   require(['dataTable', 'form', 'jquery-deparam'], function () {
     var recordTable = $('#record-table').dataTable({

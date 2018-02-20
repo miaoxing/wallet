@@ -20,6 +20,7 @@ class Transfers extends \Miaoxing\Plugin\BaseController
             return $this->err('批量转账最大转账数量不能超过100条');
         }
 
+        $ret = $this->suc();
         foreach ((array) $req['data'] as $key => $transfer) {
             //2.1 验证是否存在该用户
             $user = wei()->user()->findById($transfer[0]);
@@ -50,6 +51,6 @@ class Transfers extends \Miaoxing\Plugin\BaseController
             $ret = wei()->transaction->transfer($amount, $data, $user);
         }
 
-        return $this->ret($ret);
+        return $ret;
     }
 }

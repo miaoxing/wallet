@@ -11,8 +11,6 @@ class Transfers extends \Miaoxing\Plugin\BaseController
 
     /**
      * 批量转账
-     * @param $req
-     * @return $this
      */
     public function uploadAction($req)
     {

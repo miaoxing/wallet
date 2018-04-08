@@ -9,7 +9,7 @@
       <div class="list-col">
         <h4 class="list-heading">
           <%= typeName %>
-          <span class="pull-right">¥<%= absAmount %></span>
+          <span class="pull-right"><%= amount < 0 ? '-' : '' %>¥<%= absAmount %></span>
         </h4>
 
         <div class="list-body">

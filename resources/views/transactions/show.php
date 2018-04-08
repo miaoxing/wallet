@@ -4,7 +4,9 @@
   <li class="list-item list-header">
     <h4 class="list-heading">
       金额
-      <span class="pull-right m-r">¥<?= $transaction->getAbsAmount() ?></span>
+      <span class="pull-right m-r">
+        <?= $transaction['amount'] < 0 ? '-' : '' ?>¥<?= $transaction->getAbsAmount() ?>
+      </span>
     </h4>
   </li>
   <li class="list-item">

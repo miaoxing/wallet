@@ -14,7 +14,9 @@ class Transactions extends \Miaoxing\Plugin\BaseController
     {
         switch ($req['_format']) {
             case 'json':
-                $transactions = wei()->transaction()->curApp();
+                $transactions = wei()->transaction()
+                    ->select('transactions.*')
+                    ->curApp();
 
                 // 分页
                 $transactions->limit($req['rows'])->page($req['page']);
@@ -22,7 +24,7 @@ class Transactions extends \Miaoxing\Plugin\BaseController
                 // 排序
                 $sort = $req['sort'] ?: 'id';
                 $order = $req['order'] == 'asc' ? 'ASC' : 'DESC';
-                $transactions->orderBy($sort, $order);
+                $transactions->orderBy('transactions.' . $sort, $order);
 
                 if ($req['userId']) {
                     $transactions->andWhere(['userId' => $req['userId']]);
@@ -32,11 +34,29 @@ class Transactions extends \Miaoxing\Plugin\BaseController
                 if (isset($req['type']) && $req['type'] >= 0) {
                     $transactions->andWhere(['type' => $req['type']]);
                 }
+
                 if (isset($req['search']) && $req['search']) {
                     $transactions->andWhere('(note LIKE ?)', [
                         '%' . $req['search'] . '%',
                     ]);
                 }
+
+                if ($req['name']) {
+                    $userTable = $this->app->getNamespace() . '.user';
+                    $transactions->leftJoin($userTable, 'user.id = transactions.userId')
+                        ->andWhere('user.name LIKE ?', '%' . $req['name'] . '%');
+                }
+
+                // 时间筛选
+                $timeRange = $req['createTimeRange'];
+                if ($timeRange) {
+                    $ranges = explode('~', strtr($timeRange, '.', '-'));
+                    $ranges[0] = date('Y-m-d', strtotime($ranges[0]));
+                    $ranges[1] = date('Y-m-d', strtotime($ranges[1])) . ' 23:59:59';
+                    $transactions->andWhere('transactions.createTime BETWEEN ? AND ?', [$ranges[0], $ranges[1]]);
+                }
+
+                $this->event->trigger('preAdminTransactionListFind', [$req, $transactions]);
 
                 $data = [];
                 foreach ($transactions->findAll() as $transaction) {
@@ -48,6 +68,8 @@ class Transactions extends \Miaoxing\Plugin\BaseController
                             'createUserName' => $this->user->getDisplayNameByIdFromCache($transaction['createUser']),
                         ];
                 }
+
+                $this->event->trigger('postAdminTransactionListFind', [$req, &$data]);
 
                 return $this->suc([
                     'data' => $data,

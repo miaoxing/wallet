@@ -1,4 +1,8 @@
-<?php $view->layout() ?>
+<?php
+
+$view->layout();
+$wei->page->addAsset('plugins/admin/css/filter.css');
+?>
 
 <div class="page-header">
   <h1>
@@ -14,34 +18,58 @@
   <div class="col-xs-12">
     <!-- PAGE CONTENT BEGINS -->
     <div class="table-responsive">
-      <form class="form-inline" id="search-form" role="form">
+      <ul class="nav tab-underline m-b">
+        <?php foreach ($statuses as $status => $statusData) : ?>
+          <li class="<?= $curStatus == $status ? 'active' : '' ?>" >
+            <a href="<?= $url('admin/withdrawals', ['status' => $status] + $req->getQueries()) ?>">
+              <?= $statusData['name'] ?>
+            </a>
+          </li>
+        <?php endforeach ?>
+      </ul>
 
-        <ul class="nav nav-tabs statuses">
-          <?php foreach ($statuses as $status => $statusData) : ?>
-            <li class="<?= $curStatus == $status ? 'active' : '' ?>" >
-              <a href="<?= $url('admin/withdrawals', ['status' => $status] + $req->getQueries()) ?>">
-                <?= $statusData['name'] ?>
-              </a>
-            </li>
-          <?php endforeach ?>
-        </ul>
-
-        <div class="well form-well">
-          <?php if ($curStatus == 'toBeAudit') : ?>
-            <div class="form-group">
-              <select name="moneyLimit" id="money-limit" class="form-control">
-                <option value="0">全部</option>
-                <option value="<?= wei()->transaction->getAutoRechargeMoney(); ?>" selected>
-                  提现大于等于<?= wei()->transaction->getAutoRechargeMoney(); ?>
-                </option>
-              </select>
-            </div>
-          <?php endif ?>
-          <div class="form-group">
-            <input type="text" class="form-control" name="<?= $curStatusData['timeField'] ?>Range" id="time-range"
-              placeholder="请选择<?= $curStatusData['timeName'] ?>范围">
+      <form class="js-withdrawal-form search-form well form-horizontal">
+        <div class="form-group form-group-sm">
+          <label class="col-md-1 control-label" for="money-limit">金额：</label>
+          <div class="col-md-3">
+            <select name="moneyLimit" id="money-limit" class="form-control">
+              <option value="0">全部</option>
+              <option value="<?= wei()->transaction->getAutoRechargeMoney(); ?>" selected>
+                提现大于等于<?= wei()->transaction->getAutoRechargeMoney(); ?>
+              </option>
+            </select>
           </div>
         </div>
+
+        <div class="form-group form-group-sm">
+          <label class="col-md-1 control-label" for="name">姓名：</label>
+          <div class="col-md-3">
+            <input type="text" class="form-control" id="name" name="name">
+          </div>
+        </div>
+
+        <div class="form-group form-group-sm">
+          <label class="col-md-1 control-label" for="mobile">手机：</label>
+          <div class="col-md-3">
+            <input type="text" class="form-control" id="mobile" name="mobile">
+          </div>
+        </div>
+
+        <div class="form-group form-group-sm">
+          <label for="create-time-range" class="col-sm-1 control-label">申请时间：</label>
+          <div class="col-sm-3">
+            <input type="text" name="createTimeRange" id="create-time-range" class="js-time-range form-control">
+          </div>
+        </div>
+
+        <div class="form-group form-group-sm">
+          <label for="audit-time-range" class="col-sm-1 control-label">审核时间：</label>
+          <div class="col-sm-3">
+            <input type="text" name="auditTimeRange" id="audit-time-range" class="js-time-range form-control">
+          </div>
+        </div>
+
+        <?php $event->trigger('adminWithdrawalForm') ?>
       </form>
 
       <table id="record-table" class="record-table table table-bordered table-hover">
@@ -234,12 +262,12 @@
           });
 
           // 筛选
-          $('#search-form').update(function () {
+          $('.js-withdrawal-form').update(function () {
             recordTable.reload($(this).serialize(), false);
           });
 
           // 时间筛选
-          $('#time-range').daterangepicker({}, function (start, end) {
+          $('.js-time-range').daterangepicker({}, function (start, end) {
             this.element.trigger('change');
           });
 

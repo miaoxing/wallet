@@ -25,12 +25,10 @@ class Withdrawals extends \Miaoxing\Plugin\BaseController
             case 'json':
                 $transactions = wei()->transaction()->curApp();
 
-                // 只在待审核的时候筛选提现下限
-                if ($curStatus == 'toBeAudit') {
-                    $autoRechargeMoney = wei()->transaction->getAutoRechargeMoney();
-                    $moneyLimit = isset($req['moneyLimit']) ? $req['moneyLimit'] : $autoRechargeMoney;
-                    $transactions->andWhere('ABS(transactions.amount) >= ?', $moneyLimit);
-                }
+                // 筛选提现下限
+                $autoRechargeMoney = wei()->transaction->getAutoRechargeMoney();
+                $moneyLimit = isset($req['moneyLimit']) ? $req['moneyLimit'] : $autoRechargeMoney;
+                $transactions->andWhere('ABS(transactions.amount) >= ?', $moneyLimit);
 
                 // 分页
                 $transactions->limit($req['rows'])->page($req['page']);
@@ -38,20 +36,35 @@ class Withdrawals extends \Miaoxing\Plugin\BaseController
                 // 排序
                 $sort = $req['sort'] ?: $curStatusData['timeField'];
                 $order = strtoupper($req['order']) == 'ASC' ? 'ASC' : 'DESC';
-                $transactions->orderBy($sort, $order);
+                $transactions->orderBy('transactions.' . $sort, $order);
 
                 // 筛选类型
-                $transactions->andWhere(['type' => Transaction::TYPE_WITHDRAWAL]);
+                $transactions->andWhere(['transactions.type' => Transaction::TYPE_WITHDRAWAL]);
 
                 $transactions->$curStatus();
 
+                if ($req['name'] || $req['mobile']) {
+                    $userTable = $this->app->getNamespace() . '.user';
+                    $transactions->leftJoin($userTable, 'user.id = transactions.userId');
+                }
+
+                if ($req['name']) {
+                    $transactions->andWhere('user.name LIKE ?', '%' . $req['name'] . '%');
+                }
+
+                if ($req['mobile']) {
+                    $transactions->andWhere('user.mobile LIKE ?', '%' . $req['mobile'] . '%');
+                }
+
                 // 时间筛选
-                $timeRange = $req[$curStatusData['timeField'] . 'Range'];
-                if ($timeRange) {
-                    $ranges = explode('~', strtr($timeRange, '.', '-'));
-                    $ranges[0] = date('Y-m-d', strtotime($ranges[0]));
-                    $ranges[1] = date('Y-m-d', strtotime($ranges[1])) . ' 23:59:59';
-                    $transactions->andWhere($curStatusData['timeField'] . ' BETWEEN ? AND ?', [$ranges[0], $ranges[1]]);
+                foreach (['createTime', 'auditTime'] as $timeField) {
+                    $timeRange = $req[$timeField . 'Range'];
+                    if ($timeRange) {
+                        $ranges = explode('~', strtr($timeRange, '.', '-'));
+                        $ranges[0] = date('Y-m-d', strtotime($ranges[0]));
+                        $ranges[1] = date('Y-m-d', strtotime($ranges[1])) . ' 23:59:59';
+                        $transactions->andWhere($timeField . ' BETWEEN ? AND ?', [$ranges[0], $ranges[1]]);
+                    }
                 }
 
                 $this->event->trigger('preAdminWithdrawalListFind', [$req, $transactions]);

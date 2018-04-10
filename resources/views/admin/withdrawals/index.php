@@ -45,21 +45,6 @@
       </form>
 
       <table id="record-table" class="record-table table table-bordered table-hover">
-        <thead>
-        <tr>
-          <th>提款人</th>
-          <th class="t-5">提款金额(元)</th>
-          <th class="t-4">账户类型</th>
-          <th class="t-4">账号</th>
-          <th class="t-8"><?= $curStatusData['timeName'] ?></th>
-          <th class="t-4">状态</th>
-          <th class="t-4">操作人</th>
-          <th>操作说明</th>
-          <th class="t-4">审核</th>
-        </tr>
-        </thead>
-        <tbody>
-        </tbody>
       </table>
     </div>
     <!-- /.table-responsive -->
@@ -158,115 +143,133 @@
           columns: [
             {
               data: 'user',
+              title: '提款人',
               render: function (data, type, full) {
                 return template.render('user-info-tpl', data);
               }
             },
+            <?php $event->trigger('adminWithdrawalColumns') ?>
             {
-              data: 'absAmount'
+              data: 'absAmount',
+              title: '提款金额(元)',
+              sClass: 't-6',
+              sortable: true
             },
             {
-              data: 'accountTypeName'
+              title: '账户类型',
+              data: 'accountTypeName',
+              sClass: 't-4'
             },
             {
+              title: '账号',
               data: 'account',
+              sClass: 't-4',
               render: function (data, type, full) {
                 return data || '无';
               }
             },
             {
               data: this.timeField,
+              title: '<?= $curStatusData['timeName'] ?>',
+              sClass: 't-8',
               render: function (data, type, full) {
-                return data.substr(0, 16);
+                  return data.substr(0, 16);
+                }
+              },
+              {
+                data: 'statusName',
+                title: '状态',
+                sClass: 't-4'
+              },
+              {
+                data: 'updateUserName',
+                title: '操作人',
+                sClass: 't-4',
+                render: function (data, type, full) {
+                  return data || '-';
+                }
+              },
+              {
+                data: 'description',
+                title: '操作说明',
+                render: function (data, type, full) {
+                  return data ? '<div class="js-tooltip truncate">' + data + '</div>' : '-';
+                }
+              },
+              {
+                data: 'id',
+                title: '审核',
+                sClass: 't-4',
+                render: function (data, type, full) {
+                  return template.render('operate-col-tpl', full);
+                }
               }
-            },
-            {
-              data: 'statusName'
-            },
-            {
-              data: 'updateUserName',
-              render: function (data, type, full) {
-                return data || '-';
-              }
-            },
-            {
-              data: 'description',
-              render: function (data, type, full) {
-                return data ? '<div class="js-tooltip truncate">' + data + '</div>' : '-';
-              }
-            },
-            {
-              data: 'id',
-              render: function (data, type, full) {
-                return template.render('operate-col-tpl', full);
-              }
+            ],
+            footerCallback: function (tfoot, data, start, end, display) {
+              // 渲染底部商品数量等统计
+              $(this).find('tfoot').remove();
+              var colspan = $(this).find('thead th').length;
+              $(this).append(template.render('footerTpl', {
+                colspan: colspan,
+                withdrawalCount: function () {
+                  var withdrawalCount = 0;
+                  for (var i in data) {
+                    withdrawalCount++;
+                  }
+                  return withdrawalCount;
+                }(),
+                totalWithdrawalMoney: function () {
+                  var totalWithdrawalMoney = 0;
+                  for (var i in data) {
+                    totalWithdrawalMoney += parseInt(data[i]['absAmount']);
+                  }
+                  return totalWithdrawalMoney.toFixed(2);
+                }()
+              }));
             }
-          ],
-          footerCallback: function (tfoot, data, start, end, display) {
-            // 渲染底部商品数量等统计
-            $(this).find('tfoot').remove();
-            var colspan = $(this).find('thead th').length;
-            $(this).append(template.render('footerTpl', {
-              colspan: colspan,
-              withdrawalCount: function () {
-                var withdrawalCount = 0;
-                for (var i in data) {
-                  withdrawalCount++;
+          });
+
+          // 筛选
+          $('#search-form').update(function () {
+            recordTable.reload($(this).serialize(), false);
+          });
+
+          // 时间筛选
+          $('#time-range').daterangepicker({}, function (start, end) {
+            this.element.trigger('change');
+          });
+
+          // 审核
+          recordTable.on('click', '.audit', function () {
+            var data = recordTable.fnGetData($(this).parents('tr:first')[0]);
+            $('#audit-modal').loadJSON(data).modal('show');
+          });
+
+          $('#audit-modal form').ajaxForm({
+            dataType: 'json',
+            success: function (result) {
+              $.msg(result, function () {
+                if (result.code === 1) {
+                  $('#audit-modal').modal('hide');
                 }
-                return withdrawalCount;
-              }(),
-              totalWithdrawalMoney: function () {
-                var totalWithdrawalMoney = 0;
-                for (var i in data) {
-                  totalWithdrawalMoney += parseInt(data[i]['absAmount']);
-                }
-                return totalWithdrawalMoney.toFixed(2);
-              }()
-            }));
-          }
-        });
+              });
+              recordTable.reload();
+            }
+          });
 
-        // 筛选
-        $('#search-form').update(function () {
-          recordTable.reload($(this).serialize(), false);
-        });
+          recordTable.tooltip({
+            container: 'body',
+            selector: '.js-tooltip',
+            title: function () {
+              return $(this).html();
+            }
+          });
+        }
+      });
 
-        // 时间筛选
-        $('#time-range').daterangepicker({}, function (start, end) {
-          this.element.trigger('change');
-        });
-
-        // 审核
-        recordTable.on('click', '.audit', function () {
-          var data = recordTable.fnGetData($(this).parents('tr:first')[0]);
-          $('#audit-modal').loadJSON(data).modal('show');
-        });
-
-        $('#audit-modal form').ajaxForm({
-          dataType: 'json',
-          success: function (result) {
-            $.msg(result, function () {
-              if (result.code === 1) {
-                $('#audit-modal').modal('hide');
-              }
-            });
-            recordTable.reload();
-          }
-        });
-
-        recordTable.tooltip({
-          container: 'body',
-          selector: '.js-tooltip',
-          title: function () {
-            return $(this).html();
-          }
-        });
-      }
+      new Withdrawal().indexAction({
+        timeField: '<?= $curStatusData['timeField'] ?>'
+      });
     });
-
-    new Withdrawal().indexAction({
-      timeField: '<?= $curStatusData['timeField'] ?>'
-    });
-  });
-</script>
-<?= $block->end() ?>
+  </script>
+  <?= $block->end() ?>

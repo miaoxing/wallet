@@ -52,6 +52,8 @@ class Withdrawals extends \Miaoxing\Plugin\BaseController
                     $transactions->andWhere($curStatusData['timeField'] . ' BETWEEN ? AND ?', [$ranges[0], $ranges[1]]);
                 }
 
+                $this->event->trigger('preAdminWithdrawalListFind', [$req, $transactions]);
+
                 $data = [];
                 /** @var \Miaoxing\Wallet\Service\Transaction $transaction */
                 foreach ($transactions as $transaction) {
@@ -65,6 +67,8 @@ class Withdrawals extends \Miaoxing\Plugin\BaseController
                             'updateUserName' => $this->user->getDisplayNameByIdFromCache($transaction['updateUser']),
                         ];
                 }
+
+                $this->event->trigger('postAdminWithdrawalListFind', [$req, &$data]);
 
                 return $this->suc([
                     'message' => '读取成功',

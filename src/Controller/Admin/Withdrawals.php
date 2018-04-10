@@ -36,7 +36,9 @@ class Withdrawals extends \Miaoxing\Plugin\BaseController
                 $transactions->limit($req['rows'])->page($req['page']);
 
                 // 排序
-                $transactions->desc($curStatusData['timeField']);
+                $sort = $req['sort'] ?: $curStatusData['timeField'];
+                $order = strtoupper($req['order']) == 'ASC' ? 'ASC' : 'DESC';
+                $transactions->orderBy($sort, $order);
 
                 // 筛选类型
                 $transactions->andWhere(['type' => Transaction::TYPE_WITHDRAWAL]);

@@ -137,6 +137,7 @@
         $.extend(this, options);
 
         var recordTable = $('#record-table').dataTable({
+          sorting: [],
           ajax: {
             url: $.queryUrl('admin/withdrawals.json')
           },
@@ -150,10 +151,13 @@
             },
             <?php $event->trigger('adminWithdrawalColumns') ?>
             {
-              data: 'absAmount',
+              data: 'amount',
               title: '提款金额(元)',
               sClass: 't-6',
-              sortable: true
+              sortable: true,
+              render: function (data, type, full) {
+                return full.absAmount;
+              }
             },
             {
               title: '账户类型',

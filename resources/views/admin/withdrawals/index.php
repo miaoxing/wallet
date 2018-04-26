@@ -193,14 +193,6 @@ $wei->page->addAsset('plugins/admin/css/filter.css');
               sClass: 't-4'
             },
             {
-              title: '账号',
-              data: 'account',
-              sClass: 't-4',
-              render: function (data, type, full) {
-                return data || '无';
-              }
-            },
-            {
               data: this.timeField,
               title: '<?= $curStatusData['timeName'] ?>',
               sClass: 't-8',

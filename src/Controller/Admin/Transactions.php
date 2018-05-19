@@ -32,7 +32,7 @@ class Transactions extends \Miaoxing\Plugin\BaseController
 
                 // 筛选
                 if (isset($req['type']) && $req['type'] >= 0) {
-                    $transactions->andWhere(['type' => $req['type']]);
+                    $transactions->andWhere(['transactions.type' => $req['type']]);
                 }
 
                 if (isset($req['search']) && $req['search']) {

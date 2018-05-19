@@ -15,7 +15,7 @@ class Transactions extends \Miaoxing\Plugin\BaseController
         switch ($req['_format']) {
             case 'json':
                 $transactions = wei()->transaction()
-                    ->select('transactions.*')
+                    ->select('DISTINCT transactions.*')
                     ->curApp();
 
                 // 分页

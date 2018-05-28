@@ -95,11 +95,13 @@ class Plugin extends \Miaoxing\Plugin\BasePlugin
             'url' => 'wallet',
         ];
 
-        $links[] = [
-            'typeId' => 'wallet',
-            'name' => '充值',
-            'url' => 'orders/proxy?forward=recharges%2Fnew&showwxpaytitle=1',
-        ];
+        if (wei()->setting('transaction.enableRecharge')) {
+            $links[] = [
+                'typeId' => 'wallet',
+                'name' => '充值',
+                'url' => 'orders/proxy?forward=recharges%2Fnew&showwxpaytitle=1',
+            ];
+        }
     }
 
     /**

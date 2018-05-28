@@ -697,11 +697,10 @@ class Transaction extends BaseModel
             return $ret;
         }
 
-        // 3. 如果是充值,奖励,退款 加到充值余额中
+        // 3. 如果是充值,奖励 加到充值余额中
         $types = [
             static::TYPE_RECHARGE,
             static::TYPE_GIFT,
-            static::TYPE_REFUND,
         ];
         if (isset($transaction['type']) && in_array($transaction['type'], $types)) {
             $user['rechargeMoney'] += $money;

@@ -102,6 +102,14 @@ class Plugin extends \Miaoxing\Plugin\BasePlugin
                 'url' => 'orders/proxy?forward=recharges%2Fnew&showwxpaytitle=1',
             ];
         }
+
+        if (wei()->setting('transaction.enableTransaction')) {
+            $links[] = [
+                'typeId' => 'wallet',
+                'name' => '余额明细',
+                'url' => 'transactions',
+            ];
+        }
     }
 
     /**

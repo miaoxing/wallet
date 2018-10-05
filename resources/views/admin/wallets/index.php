@@ -59,7 +59,7 @@
 </div>
 <!-- /row -->
 
-<?php require $this->getFile('user:admin/user/richInfo.php') ?>
+<?php require $this->getFile('@user/admin/user/richInfo.php') ?>
 
 <script type="text/html" id="actionColTpl">
   <a href="<%= $.url('admin/transactions', {userId: id}) %>">余额明细</a>

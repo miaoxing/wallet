@@ -49,7 +49,7 @@
 </div>
 <!-- /row -->
 
-<?php require $this->getFile('user:admin/user/richInfo.php') ?>
+<?php require $this->getFile('@user/admin/user/richInfo.php') ?>
 
 <!-- 底部统计 -->
 <script id="footerTpl" type="text/html">

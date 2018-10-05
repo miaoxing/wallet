@@ -151,7 +151,7 @@ $wei->page->addAsset('plugins/admin/css/filter.css');
   <!-- /.modal-dialog -->
 </div><!-- /.modal -->
 
-<?php require $view->getFile('user:admin/user/richInfo.php') ?>
+<?php require $view->getFile('@user/admin/user/richInfo.php') ?>
 
 <?= $block->js() ?>
 <script>

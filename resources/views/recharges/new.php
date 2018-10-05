@@ -18,7 +18,7 @@
     <?php endforeach ?>
   </ul>
 
-  <?php require $view->getFile('payment:payments/select.php') ?>
+  <?php require $view->getFile('@payment/payments/select.php') ?>
 
   <input class="js-amount" type="hidden" name="amount" value="<?= $recharges[0]['topUp'] ?>">
 

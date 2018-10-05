@@ -1,1 +1,3 @@
-<?php require $view->getFile('wallet:admin/recharges/edit.php');
+<?php
+
+require $view->getFile('@wallet/admin/recharges/edit.php');

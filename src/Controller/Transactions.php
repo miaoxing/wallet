@@ -35,7 +35,7 @@ class Transactions extends \Miaoxing\Plugin\BaseController
                 return $this->ret($ret);
 
             default:
-                $headerTitle = '余额明细';
+                $this->page->setTitle('余额明细');
 
                 return get_defined_vars();
         }
@@ -45,7 +45,7 @@ class Transactions extends \Miaoxing\Plugin\BaseController
     {
         $transaction = wei()->transaction()->curApp()->mine()->findOneById($req['id']);
 
-        $headerTitle = '余额详情';
+        $this->page->setTitle('余额详情');
 
         return get_defined_vars();
     }

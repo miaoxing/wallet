@@ -20,7 +20,7 @@ class Recharges extends \Miaoxing\Plugin\BaseController
             ->desc('sort')
             ->findAll();
 
-        $headerTitle = '充值';
+        $this->page->setTitle('充值');
 
         return get_defined_vars();
     }

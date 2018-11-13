@@ -51,7 +51,7 @@ class Withdrawals extends \Miaoxing\Plugin\BaseController
                 $moneySum = $transactions->select('SUM(amount)')->fetchColumn();
                 $moneySum = sprintf('%.2f', abs($moneySum));
 
-                $headerTitle = '提现记录';
+                $this->page->setTitle('提现记录');
 
                 return get_defined_vars();
         }
@@ -64,7 +64,7 @@ class Withdrawals extends \Miaoxing\Plugin\BaseController
     {
         $availableMoney = wei()->transaction->getAvailableMoney();
 
-        $headerTitle = '申请提款';
+        $this->page->setTitle('申请提款');
 
         return get_defined_vars();
     }
@@ -130,7 +130,7 @@ class Withdrawals extends \Miaoxing\Plugin\BaseController
     {
         $transaction = wei()->transaction()->curApp()->mine()->findOneById($req['id']);
 
-        $headerTitle = '提款详情';
+        $this->page->setTitle('提款详情');
 
         return get_defined_vars();
     }

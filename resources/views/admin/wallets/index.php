@@ -4,7 +4,7 @@
   <div class="pull-right">
     <form id="transfer-upload-form" class="form-horizontal" method="post" role="form">
       <div class="excel-fileinput fileinput fileinput-new" data-provides="fileinput" title="最多只能批量导入100条">
-        <span class="btn btn-white btn-file" >
+        <span class="btn btn-default btn-file" >
           <span class="fileinput-new" >批量转账</span>
             <input type="file" name="file">
         </span>

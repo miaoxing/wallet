@@ -1,6 +1,6 @@
 <?php
 
-namespace Miaoxing\Wallet\Controller\admin;
+namespace Miaoxing\Wallet\Controller\Admin;
 
 class Wallets extends \Miaoxing\Plugin\BaseController
 {

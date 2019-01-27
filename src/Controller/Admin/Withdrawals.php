@@ -1,6 +1,6 @@
 <?php
 
-namespace Miaoxing\Wallet\Controller\admin;
+namespace Miaoxing\Wallet\Controller\Admin;
 
 use Miaoxing\Wallet\Service\Transaction;
 

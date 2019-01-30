@@ -13,7 +13,7 @@
 <ul class="list list-indented">
   <?php if ($setting('transaction.enableRecharge')) : ?>
     <li class="list-item-link">
-      <a class="list-item has-feedback" href="<?= $url->pay('recharges/new') ?>">
+      <a class="list-item has-feedback" href="<?= wei()->order->payUrl('recharges/new') ?>">
         <div class="list-col list-col-left wallet-icon-col">
           <i class="wallet-icon wallet-icon-list">&#xe608;</i>
         </div>

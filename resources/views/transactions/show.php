@@ -1,29 +1,35 @@
 <?php $view->layout() ?>
+<style>
+  /* TODO */
+  .list-item {
+    display: flex;
+  }
+</style>
 
 <ul class="list list-condensed list-borderless">
   <li class="list-item list-header">
-    <h4 class="list-heading">
+    <h4 class="list-heading w-100">
       金额
-      <span class="pull-right m-r">
+      <span class="float-right">
         <?= $transaction['amount'] < 0 ? '-' : '' ?>¥<?= $transaction->getAbsAmount() ?>
       </span>
     </h4>
   </li>
   <li class="list-item">
-    <div class="col-xs-4 list-label">类型：</div>
-    <div class="col-xs-8 list-content text-right">
+    <div class="col-4 list-label">类型：</div>
+    <div class="col-8 list-content text-right p-r-0">
       <?= $transaction->getTypeText() ?>
     </div>
   </li>
   <li class="list-item">
-    <div class="col-xs-4 list-label">备注：</div>
-    <div class="col-xs-8 list-content text-right">
+    <div class="col-4 list-label">备注：</div>
+    <div class="col-8 list-content text-right p-r-0">
       <?= $transaction['note'] ?: '无' ?>
     </div>
   </li>
   <li class="list-item">
-    <div class="col-xs-4 list-label">创建时间：</div>
-    <div class="col-xs-8 list-content text-right">
+    <div class="col-4 list-label">创建时间：</div>
+    <div class="col-8 list-content text-right p-r-0">
       <?= $transaction['createTime'] ?>
     </div>
   </li>

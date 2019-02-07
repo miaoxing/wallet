@@ -1,13 +1,7 @@
 <?php $view->layout() ?>
-<style>
-  /* TODO */
-  .list-item {
-    display: flex;
-  }
-</style>
 
 <ul class="list list-condensed list-borderless">
-  <li class="list-item list-header">
+  <li class="list-item list-header d-flex">
     <h4 class="list-heading w-100">
       金额
       <span class="float-right">
@@ -15,19 +9,19 @@
       </span>
     </h4>
   </li>
-  <li class="list-item">
+  <li class="list-item d-flex">
     <div class="col-4 list-label">类型：</div>
     <div class="col-8 list-content text-right p-r-0">
       <?= $transaction->getTypeText() ?>
     </div>
   </li>
-  <li class="list-item">
+  <li class="list-item d-flex">
     <div class="col-4 list-label">备注：</div>
     <div class="col-8 list-content text-right p-r-0">
       <?= $transaction['note'] ?: '无' ?>
     </div>
   </li>
-  <li class="list-item">
+  <li class="list-item d-flex">
     <div class="col-4 list-label">创建时间：</div>
     <div class="col-8 list-content text-right p-r-0">
       <?= $transaction['createTime'] ?>

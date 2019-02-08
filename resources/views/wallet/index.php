@@ -5,7 +5,7 @@
 <?= $block->end() ?>
 
 <div class="bg-light border-bottom wallet-balance-container">
-  <i class="wallet-icon wallet-icon-balance label label-primary bg-primary">&#xe60c;</i>
+  <i class="wallet-icon wallet-icon-balance bg-primary">&#xe60c;</i>
   账户余额
   <span class="text-primary wallet-balance"><?= $curUser['money'] ?>元</span>
 </div>

@@ -11,7 +11,7 @@
       <input type="hidden" name="availableMoney" class="form-control js-can-get-money" value="<?= $availableMoney ?>">
     </div>
   </div>
-  <div class="form-group border-top">
+  <div class="form-group">
     <label for="account-type" class="control-label">账户类型</label>
 
     <div class="col-control">
@@ -36,9 +36,9 @@
     <div class="col-control">
       <div class="input-group">
         <input type="text" class="js-money form-control" id="money" name="money" value="">
-        <span class="input-group-addon border-left">元</span>
-        <span class="input-group-btn border-left">
-          <button type="button" class="text-primary btn btn-default form-link js-get-all-money">
+        <span class="input-group-append border-left">
+          <span class="input-group-text">元</span>
+          <button type="button" class="text-primary btn btn-default form-link js-get-all-money border-left">
             输入全部
           </button>
         </span>

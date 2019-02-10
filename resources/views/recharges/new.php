@@ -23,7 +23,7 @@
   <input class="js-amount" type="hidden" name="amount" value="<?= $recharges[0]['topUp'] ?>">
 
   <div class="form-group form-footer">
-    <button type="submit" class="btn btn-primary btn-block hairline">立即支付</button>
+    <button type="submit" class="btn btn-primary btn-block">立即支付</button>
   </div>
 </form>
 

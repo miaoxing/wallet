@@ -46,7 +46,7 @@
     </div>
   </div>
   <div class="form-group form-footer">
-    <button type="submit" class="btn btn-primary btn-block hairline">提交</button>
+    <button type="submit" class="btn btn-primary btn-block">提交</button>
   </div>
 </form>
 

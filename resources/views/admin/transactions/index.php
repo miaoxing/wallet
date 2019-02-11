@@ -11,7 +11,7 @@ $wei->page->addAsset('plugins/admin/css/filter.css');
 </div>
 
 <div class="row">
-  <div class="col-xs-12">
+  <div class="col-12">
     <div class="table-responsive">
       <form class="js-transaction-form search-form well form-horizontal">
         <div class="form-group form-group-sm">

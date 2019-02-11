@@ -15,7 +15,7 @@ $wei->page->addAsset('plugins/admin/css/filter.css');
 </div>
 
 <div class="row">
-  <div class="col-xs-12">
+  <div class="col-12">
     <!-- PAGE CONTENT BEGINS -->
     <div class="table-responsive">
       <ul class="nav tab-underline m-b">
@@ -119,9 +119,9 @@ $wei->page->addAsset('plugins/admin/css/filter.css');
         </div>
         <div class="modal-body">
           <div class="form-group">
-            <label for="audit" class="col-xs-3 control-label">状态</label>
+            <label for="audit" class="col-3 control-label">状态</label>
 
-            <div class="col-xs-9">
+            <div class="col-9">
               <label class="radio-inline">
                 <input type="radio" class="audit" name="audit" value="1"> 通过
               </label>
@@ -131,9 +131,9 @@ $wei->page->addAsset('plugins/admin/css/filter.css');
             </div>
           </div>
           <div class="form-group">
-            <label class="control-label col-xs-3" for="note">备注</label>
+            <label class="control-label col-3" for="note">备注</label>
 
-            <div class="col-xs-6">
+            <div class="col-6">
               <input type="text" name="note" id="note" class="form-control">
 
               <p class="help-block">前台用户可见</p>

@@ -18,7 +18,7 @@
 </div>
 
 <div class="row">
-  <div class="col-xs-12">
+  <div class="col-12">
     <div class="table-responsive">
       <div class="well form-well">
         <form class="js-wallet-form form-inline" role="form">

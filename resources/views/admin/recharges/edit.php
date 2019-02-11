@@ -11,7 +11,7 @@
 </div>
 
 <div class="row">
-  <div class="col-xs-12">
+  <div class="col-12">
     <!-- PAGE CONTENT BEGINS -->
     <form id="recharge-form" class="form-horizontal" method="post" role="form">
       <div class="form-group">
@@ -39,7 +39,7 @@
       <input type="hidden" name="id" id="id" value="<?= $id ?>"/>
 
       <div class="clearfix form-actions form-group">
-        <div class="col-lg-offset-2">
+        <div class="offset-lg-2">
           <button class="btn btn-primary" type="submit">
             <i class="fa fa-check bigger-110"></i>
             提交

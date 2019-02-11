@@ -20,8 +20,8 @@ $wei->page->addAsset('plugins/admin/css/filter.css');
     <div class="table-responsive">
       <ul class="nav tab-underline m-b">
         <?php foreach ($statuses as $status => $statusData) : ?>
-          <li class="<?= $curStatus == $status ? 'active' : '' ?>" >
-            <a href="<?= $url('admin/withdrawals', ['status' => $status] + $req->getQueries()) ?>">
+          <li class="nav-item <?= $curStatus == $status ? 'active' : '' ?>" >
+            <a class="nav-link" href="<?= $url('admin/withdrawals', ['status' => $status] + $req->getQueries()) ?>">
               <?= $statusData['name'] ?>
             </a>
           </li>

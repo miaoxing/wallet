@@ -55,7 +55,7 @@
         <div class="col-lg-4">
           <div class="input-group">
             <input type="text" class="form-control" id="amount" name="amount" data-rule-required="true">
-            <span class="input-group-addon">元</span>
+            <span class="input-group-append"><span class="input-group-text">元</span></span>
           </div>
         </div>
 

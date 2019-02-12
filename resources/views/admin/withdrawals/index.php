@@ -114,8 +114,10 @@ $wei->page->addAsset('plugins/admin/css/filter.css');
     <div class="modal-content">
       <form class="form-horizontal" action="<?= $url('admin/withdrawals/audit') ?>" method="post">
         <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-          <h4 class="modal-title">审核提款单</h4>
+          <h5 class="modal-title">审核提款单</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
         </div>
         <div class="modal-body">
           <div class="form-group">

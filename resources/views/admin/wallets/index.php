@@ -20,7 +20,7 @@
 <div class="row">
   <div class="col-12">
     <div class="table-responsive">
-      <div class="well form-well">
+      <div class="well">
         <form class="js-wallet-form form-inline" role="form">
           <div class="form-group">
             <label for="name">姓名</label>

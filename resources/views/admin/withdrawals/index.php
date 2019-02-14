@@ -138,7 +138,7 @@ $wei->page->addAsset('plugins/admin/css/filter.css');
             <div class="col-6">
               <input type="text" name="note" id="note" class="form-control">
 
-              <p class="help-block">前台用户可见</p>
+              <p class="form-text">前台用户可见</p>
             </div>
           </div>
         </div>

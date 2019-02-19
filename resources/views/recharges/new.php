@@ -5,7 +5,7 @@
 <?= $block->end() ?>
 
 <form class="js-recharge-form form recharge-form" action="<?= $url('recharges/create') ?>" method="post">
-  <ul class="recharge-list list-unstyled m-t-sm">
+  <ul class="recharge-list list-unstyled mt-2">
     <?php foreach ($recharges as $i => $recharge) : ?>
       <li class="js-recharge-item recharge-item">
         <span class="js-recharge-btn recharge-btn flex flex-center flex-y text-active-primary border-active-primary

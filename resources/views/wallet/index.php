@@ -69,7 +69,7 @@
   </li>
 </ul>
 
-<p class="m-a-sm m-t-md">
+<p class="m-2 mt-4">
   <span class="wallet-icon">&#xe602;</span>
   什么是余额?
   <br>

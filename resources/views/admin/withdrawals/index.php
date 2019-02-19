@@ -29,7 +29,7 @@ $wei->page->addAsset('plugins/admin/css/filter.css');
       </ul>
 
       <form class="js-withdrawal-form search-form well form-horizontal">
-        <div class="form-group">
+        <div class="form-row">
           <label class="col-md-1 control-label" for="money-limit">金额：</label>
           <div class="col-md-3">
             <select name="moneyLimit" id="money-limit" class="form-control">
@@ -39,37 +39,29 @@ $wei->page->addAsset('plugins/admin/css/filter.css');
               </option>
             </select>
           </div>
-        </div>
 
-        <div class="form-group">
           <label class="col-md-1 control-label" for="name">姓名：</label>
           <div class="col-md-3">
             <input type="text" class="form-control" id="name" name="name">
           </div>
-        </div>
 
-        <div class="form-group">
           <label class="col-md-1 control-label" for="mobile">手机：</label>
           <div class="col-md-3">
             <input type="text" class="form-control" id="mobile" name="mobile">
           </div>
-        </div>
 
-        <div class="form-group">
           <label for="create-time-range" class="col-sm-1 control-label">申请时间：</label>
           <div class="col-sm-3">
             <input type="text" name="createTimeRange" id="create-time-range" class="js-time-range form-control">
           </div>
-        </div>
 
-        <div class="form-group">
           <label for="audit-time-range" class="col-sm-1 control-label">审核时间：</label>
           <div class="col-sm-3">
             <input type="text" name="auditTimeRange" id="audit-time-range" class="js-time-range form-control">
           </div>
-        </div>
 
-        <?php $event->trigger('adminWithdrawalForm') ?>
+          <?php $event->trigger('adminWithdrawalForm') ?>
+        </div>
       </form>
 
       <table id="record-table" class="record-table table table-bordered table-hover">

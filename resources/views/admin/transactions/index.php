@@ -14,37 +14,31 @@ $wei->page->addAsset('plugins/admin/css/filter.css');
   <div class="col-12">
     <div class="table-responsive">
       <form class="js-transaction-form search-form well form-horizontal">
-        <div class="form-group">
+        <div class="form-row">
           <label class="col-md-1 control-label" for="type">类型：</label>
           <div class="col-md-3">
             <select class="js-type form-control" name="type" id="type">
               <option value="-1" selected>全部</option>
             </select>
           </div>
-        </div>
 
-        <div class="form-group">
           <label class="col-md-1 control-label" for="name">姓名：</label>
           <div class="col-md-3">
             <input type="text" class="form-control" id="name" name="name">
           </div>
-        </div>
 
-        <div class="form-group">
           <label for="create-time-range" class="col-sm-1 control-label">创建时间：</label>
           <div class="col-sm-3">
             <input type="text" name="createTimeRange" id="create-time-range" class="js-time-range form-control">
           </div>
-        </div>
 
-        <div class="form-group">
           <label for="search" class="col-sm-1 control-label">操作说明：</label>
           <div class="col-sm-3">
             <input type="text" value="<?= $e($req['search']) ?>" class="form-control" name="search">
           </div>
-        </div>
 
-        <?php $event->trigger('adminTransactionForm') ?>
+          <?php $event->trigger('adminTransactionForm') ?>
+        </div>
       </form>
 
       <table class="js-transaction-table record-table table table-bordered table-hover">

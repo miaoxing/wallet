@@ -51,7 +51,7 @@ $wei->page->addAsset('plugins/admin/css/filter.css');
 
 <?= $block->js() ?>
 <script>
-  require(['form', 'dataTable', 'jquery-deparam', 'daterangepicker'], function (form) {
+  require(['form', 'plugins/admin/js/data-table', 'jquery-deparam', 'daterangepicker'], function (form) {
     form.toOptions($('.js-type'), <?= json_encode(wei()->transaction->getConsts('type')) ?>, 'id', 'text');
 
     var $table = $('.js-transaction-table').dataTable({

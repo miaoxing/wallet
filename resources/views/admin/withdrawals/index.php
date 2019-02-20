@@ -149,7 +149,7 @@ $wei->page->addAsset('plugins/admin/css/filter.css');
 
 <?= $block->js() ?>
 <script>
-  require(['plugins/admin/js/data-table', 'form', 'jquery-deparam', 'daterangepicker'], function () {
+  require(['plugins/admin/js/data-table', 'form', 'jquery-deparam', 'plugins/admin/js/date-range-picker'], function () {
     var Withdrawal = function () {
     };
 

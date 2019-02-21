@@ -1,4 +1,8 @@
-<?php $view->layout() ?>
+<?php
+
+$view->layout();
+$wei->page->addAsset('comps/jasny-bootstrap/dist/css/jasny-bootstrap.min.css');
+?>
 
 <div class="page-header">
   <div class="pull-right">
@@ -68,7 +72,8 @@
 
 <?= $block->js() ?>
 <script>
-  require(['plugins/admin/js/data-table', 'form', 'jquery-unparam','plugins/excel/js/excel'], function () {
+  require(['plugins/admin/js/data-table', 'form', 'jquery-unparam','plugins/excel/js/excel',
+    'comps/jasny-bootstrap/dist/js/jasny-bootstrap.min'], function () {
     var recordTable = $('.js-wallet-table').dataTable({
       sorting : [[0, 'desc']],
       ajax: {

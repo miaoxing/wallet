@@ -56,7 +56,7 @@
 
 <?= $block->js() ?>
 <script>
-  require(['assets/numeric', 'jquery-form'], function (numeric) {
+  require(['plugins/product/js/numeric', 'jquery-form'], function (numeric) {
     $('.js-money').change(function () {
       $(this).val(numeric.toFloat($(this).val()).toFixed(2));
     });

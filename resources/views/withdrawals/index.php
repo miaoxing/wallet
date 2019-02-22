@@ -46,7 +46,7 @@
 
 <?= $block->js() ?>
 <script>
-  require(['plugins/app/libs/artTemplate/template.min'], function () {
+  require(['plugins/app/libs/artTemplate/template.min', 'plugins/app/libs/jquery-list/jquery-list'], function () {
     template.helper('$', $);
 
     var list = $('.withdrawal-list').list({

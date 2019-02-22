@@ -68,7 +68,7 @@
 
 <?= $block->js() ?>
 <script>
-  require(['plugins/admin/js/data-table', 'jquery-unparam', 'form', 'plugins/admin/js/date-range-picker'], function () {
+  require(['plugins/admin/js/data-table', 'form', 'plugins/admin/js/date-range-picker'], function () {
     $('#search-form').loadParams().update(function () {
       recordTable.reload($(this).serialize(), false);
     });

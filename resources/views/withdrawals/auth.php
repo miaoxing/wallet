@@ -24,7 +24,7 @@
 </form>
 
 <script>
-  require(['jquery-form'], function () {
+  require(['plugins/app/libs/jquery-form/jquery.form'], function () {
     $('.auth-form').ajaxForm({
       url: $.url('wallet/submitAuth'),
       dataType: 'json',

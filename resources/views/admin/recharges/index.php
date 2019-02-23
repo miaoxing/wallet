@@ -77,7 +77,11 @@
     // 点击删除标签
     recordTable.on('click', '.delete-record', function () {
       var link = $(this);
-      $.confirm('删除后将无法还原,确认删除?', function () {
+      $.confirm('删除后将无法还原,确认删除?', function (result) {
+        if (!result) {
+          return;
+        }
+
         $.post(link.data('href'), function (result) {
           $.msg(result);
           recordTable.reload();

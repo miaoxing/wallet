@@ -211,7 +211,7 @@ $wei->page->addAsset('plugins/admin/css/filter.css');
                 data: 'description',
                 title: '操作说明',
                 render: function (data, type, full) {
-                  return data ? '<div class="js-tooltip truncate">' + data + '</div>' : '-';
+                  return data ? '<div class="js-tooltip text-truncate">' + data + '</div>' : '-';
                 }
               },
               {

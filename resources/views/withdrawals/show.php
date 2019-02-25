@@ -4,7 +4,7 @@
   <li class="list-item list-header d-flex">
     <h4 class="list-heading w-100">
       提款
-      <span class="pull-right small"><?= $transaction->getStatusName() ?></span>
+      <span class="float-right small"><?= $transaction->getStatusName() ?></span>
     </h4>
   </li>
   <li class="list-item d-flex border-top">

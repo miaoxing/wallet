@@ -1,7 +1,7 @@
 <?php $view->layout() ?>
 
 <div class="page-header">
-  <a class="btn pull-right btn-success" href="<?= $url('admin/recharges/new') ?>">添加充值模板</a>
+  <a class="btn float-right btn-success" href="<?= $url('admin/recharges/new') ?>">添加充值模板</a>
 
   <h1>
     充值管理

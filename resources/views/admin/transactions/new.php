@@ -20,7 +20,7 @@
         </label>
 
         <div class="col-lg-4">
-          <p class="form-control-static"><?= $selectedUser->getNickName() ?></p>
+          <p class="form-control-plaintext"><?= $selectedUser->getNickName() ?></p>
         </div>
       </div>
 
@@ -30,7 +30,7 @@
         </label>
 
         <div class="col-lg-4">
-          <p class="form-control-static"><?= $selectedUser['money'] ?>元</p>
+          <p class="form-control-plaintext"><?= $selectedUser['money'] ?>元</p>
         </div>
       </div>
 

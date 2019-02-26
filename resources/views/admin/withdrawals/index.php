@@ -136,7 +136,7 @@ $wei->page->addAsset('plugins/admin/css/filter.css');
         </div>
         <div class="modal-footer">
           <input type="hidden" name="id" class="id">
-          <button type="submit" class="btn btn-default">保存</button>
+          <button type="submit" class="btn btn-secondary">保存</button>
         </div>
       </form>
     </div>

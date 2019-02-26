@@ -100,7 +100,7 @@
             提交
           </button>
           &nbsp; &nbsp; &nbsp;
-          <a class="btn btn-default" href="<?= $url('admin/wallets') ?>">
+          <a class="btn btn-secondary" href="<?= $url('admin/wallets') ?>">
             <i class="fa fa-undo bigger-110"></i>
             返回列表
           </a>

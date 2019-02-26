@@ -45,7 +45,7 @@
             提交
           </button>
           &nbsp; &nbsp; &nbsp;
-          <a class="btn btn-default" href="<?= $url('admin/recharges/index') ?>">
+          <a class="btn btn-secondary" href="<?= $url('admin/recharges/index') ?>">
             <i class="fa fa-undo bigger-110"></i>
             返回列表
           </a>

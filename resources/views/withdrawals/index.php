@@ -10,7 +10,7 @@
   <?php endforeach ?>
 </ul>
 
-<ul class="stat-nav flex flex-equal text-center border-top-bottom">
+<ul class="stat-nav d-flex flex-equal text-center border-top-bottom">
   <li class="border-right">
     记录
     <span class="stat-num text-primary"><?= $ret['records'] ?></span>

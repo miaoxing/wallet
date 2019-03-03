@@ -7,12 +7,12 @@
   <li>
     <a class="list-item has-feedback" href="<%= $.url('transactions/%s', id) %>">
       <div class="list-col">
-        <h4 class="list-item-title">
+        <h4 class="list-title">
           <%= typeName %>
           <span class="float-right"><%= amount < 0 ? '-' : '' %>¥<%= absAmount %></span>
         </h4>
 
-        <div class="list-item-text">
+        <div class="list-text">
           <%= createTime.substr(0, 16) %>
         </div>
       </div>

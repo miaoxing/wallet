@@ -2,7 +2,7 @@
 
 <ul class="list list-condensed list-borderless">
   <li class="list-item list-header d-flex">
-    <h4 class="list-item-title w-100">
+    <h4 class="list-title w-100">
       提款
       <span class="float-right small"><?= $transaction->getStatusName() ?></span>
     </h4>

@@ -28,11 +28,11 @@
   <li>
     <a class="list-item has-feedback" href="<%= $.url('withdrawals/%s', id) %>">
       <div class="list-col">
-        <h4 class="list-item-title">
+        <h4 class="list-title">
           <%= absAmount %>元
         </h4>
 
-        <div class="list-item-text">
+        <div class="list-text">
           <?= $curStatusData['timeName'] ?>: <%= <?= $curStatusData['timeField'] ?>.substr(0, 16) %>
           <?php if ($curStatus == 'auditNotPass') : ?>
             <br>备注: <%= note %>

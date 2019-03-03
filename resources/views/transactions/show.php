@@ -2,7 +2,7 @@
 
 <ul class="list list-condensed list-borderless">
   <li class="list-item list-header d-flex">
-    <h4 class="list-title w-100">
+    <h4 class="list-item-title w-100">
       金额
       <span class="float-right">
         <?= $transaction['amount'] < 0 ? '-' : '' ?>¥<?= $transaction->getAbsAmount() ?>

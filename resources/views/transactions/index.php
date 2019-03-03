@@ -5,7 +5,7 @@
 
 <script type="text/html" class="transaction-item-tpl">
   <li>
-    <a class="list-item has-feedback" href="<%= $.url('transactions/%s', id) %>">
+    <a class="list-item list-has-feedback" href="<%= $.url('transactions/%s', id) %>">
       <div class="list-col">
         <h4 class="list-title">
           <%= typeName %>

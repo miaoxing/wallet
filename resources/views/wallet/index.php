@@ -13,7 +13,7 @@
 <ul class="list list-indented">
   <?php if ($setting('transaction.enableRecharge')) : ?>
     <li class="list-item-link">
-      <a class="list-item has-feedback" href="<?= wei()->order->payUrl('recharges/new') ?>">
+      <a class="list-item list-has-feedback" href="<?= wei()->order->payUrl('recharges/new') ?>">
         <div class="list-col wallet-icon-col">
           <i class="wallet-icon wallet-icon-list">&#xe608;</i>
         </div>
@@ -28,7 +28,7 @@
   <?php endif ?>
   <?php if ($setting('transaction.enableWithdrawal')) : ?>
     <li class="list-item-link">
-      <a class="list-item has-feedback" href="<?= $url('withdrawals/new') ?>">
+      <a class="list-item list-has-feedback" href="<?= $url('withdrawals/new') ?>">
         <div class="list-col wallet-icon-col">
           <i class="wallet-icon wallet-icon-list">&#xe607;</i>
         </div>
@@ -41,7 +41,7 @@
       </a>
     </li>
     <li class="list-item-link">
-      <a class="list-item has-feedback" href="<?= $url('withdrawals') ?>">
+      <a class="list-item list-has-feedback" href="<?= $url('withdrawals') ?>">
         <div class="list-col wallet-icon-col">
           <i class="wallet-icon wallet-icon-list">&#xe606;</i>
         </div>
@@ -55,7 +55,7 @@
     </li>
   <?php endif ?>
   <li class="list-item-link">
-    <a class="list-item has-feedback" href="<?= $url('transactions') ?>">
+    <a class="list-item list-has-feedback" href="<?= $url('transactions') ?>">
       <div class="list-col wallet-icon-col">
         <i class="wallet-icon wallet-icon-list">&#xe615;</i>
       </div>

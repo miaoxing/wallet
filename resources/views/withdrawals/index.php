@@ -26,7 +26,7 @@
 
 <script type="text/html" class="withdrawal-item-tpl">
   <li>
-    <a class="list-item has-feedback" href="<%= $.url('withdrawals/%s', id) %>">
+    <a class="list-item list-has-feedback" href="<%= $.url('withdrawals/%s', id) %>">
       <div class="list-col">
         <h4 class="list-title">
           <%= absAmount %>元

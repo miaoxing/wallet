@@ -13,7 +13,7 @@
 <ul class="list list-indented">
   <?php if ($setting('transaction.enableRecharge')) : ?>
     <li class="list-item-link">
-      <a class="list-item list-has-feedback" href="<?= wei()->order->payUrl('recharges/new') ?>">
+      <a class="list-item list-has-arrow" href="<?= wei()->order->payUrl('recharges/new') ?>">
         <div class="list-col wallet-icon-col">
           <i class="wallet-icon wallet-icon-list">&#xe608;</i>
         </div>
@@ -22,13 +22,13 @@
             充值
           </h4>
         </div>
-        <i class="bm-angle-right list-feedback"></i>
+        <i class="bm-angle-right list-arrow"></i>
       </a>
     </li>
   <?php endif ?>
   <?php if ($setting('transaction.enableWithdrawal')) : ?>
     <li class="list-item-link">
-      <a class="list-item list-has-feedback" href="<?= $url('withdrawals/new') ?>">
+      <a class="list-item list-has-arrow" href="<?= $url('withdrawals/new') ?>">
         <div class="list-col wallet-icon-col">
           <i class="wallet-icon wallet-icon-list">&#xe607;</i>
         </div>
@@ -37,11 +37,11 @@
             提现
           </h4>
         </div>
-        <i class="bm-angle-right list-feedback"></i>
+        <i class="bm-angle-right list-arrow"></i>
       </a>
     </li>
     <li class="list-item-link">
-      <a class="list-item list-has-feedback" href="<?= $url('withdrawals') ?>">
+      <a class="list-item list-has-arrow" href="<?= $url('withdrawals') ?>">
         <div class="list-col wallet-icon-col">
           <i class="wallet-icon wallet-icon-list">&#xe606;</i>
         </div>
@@ -50,12 +50,12 @@
             提现记录
           </h4>
         </div>
-        <i class="bm-angle-right list-feedback"></i>
+        <i class="bm-angle-right list-arrow"></i>
       </a>
     </li>
   <?php endif ?>
   <li class="list-item-link">
-    <a class="list-item list-has-feedback" href="<?= $url('transactions') ?>">
+    <a class="list-item list-has-arrow" href="<?= $url('transactions') ?>">
       <div class="list-col wallet-icon-col">
         <i class="wallet-icon wallet-icon-list">&#xe615;</i>
       </div>
@@ -64,7 +64,7 @@
           余额明细
         </h4>
       </div>
-      <i class="bm-angle-right list-feedback"></i>
+      <i class="bm-angle-right list-arrow"></i>
     </a>
   </li>
 </ul>

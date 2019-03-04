@@ -26,7 +26,7 @@
 
 <script type="text/html" class="withdrawal-item-tpl">
   <li>
-    <a class="list-item list-has-feedback" href="<%= $.url('withdrawals/%s', id) %>">
+    <a class="list-item list-has-arrow" href="<%= $.url('withdrawals/%s', id) %>">
       <div class="list-col">
         <h4 class="list-title">
           <%= absAmount %>元
@@ -39,7 +39,7 @@
           <?php endif ?>
         </div>
       </div>
-      <i class="bm-angle-right list-feedback"></i>
+      <i class="bm-angle-right list-arrow"></i>
     </a>
   </li>
 </script>

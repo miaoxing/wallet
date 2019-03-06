@@ -38,7 +38,7 @@
         <input type="text" class="js-money form-control" id="money" name="money" value="">
         <span class="input-group-append border-left">
           <span class="input-group-text">元</span>
-          <button type="button" class="text-primary btn btn-secondary form-link js-get-all-money border-left">
+          <button type="button" class="btn btn-outline-primary js-get-all-money border-left">
             输入全部
           </button>
         </span>

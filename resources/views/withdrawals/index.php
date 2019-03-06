@@ -1,6 +1,6 @@
 <?php $view->layout() ?>
 
-<ul class="header-tab nav tab-underline">
+<ul class="header-nav nav nav-underline">
   <?php foreach ($statuses as $status => $statusData) : ?>
     <li class="nav-item border-primary <?= $curStatus == $status ? 'active' : '' ?>">
       <a class="nav-link text-active-primary" href="<?= $url('withdrawals', ['status' => $status]) ?>">

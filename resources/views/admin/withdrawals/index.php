@@ -18,7 +18,7 @@ $wei->page->addAsset('plugins/admin/css/filter.css');
   <div class="col-12">
     <!-- PAGE CONTENT BEGINS -->
     <div class="table-responsive">
-      <ul class="nav tab-underline mb-3">
+      <ul class="nav nav-underline mb-3">
         <?php foreach ($statuses as $status => $statusData) : ?>
           <li class="nav-item">
             <a class="nav-link <?= $curStatus == $status ? 'active' : '' ?>" href="<?= $url('admin/withdrawals', ['status' => $status] + $req->getQueries()) ?>">

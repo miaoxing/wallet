@@ -17,7 +17,7 @@
         <div class="list-col wallet-icon-col">
           <i class="wallet-icon wallet-icon-list">&#xe608;</i>
         </div>
-        <div class="list-col list-middle">
+        <div class="list-col align-self-center">
           <h4 class="list-title">
             充值
           </h4>
@@ -32,7 +32,7 @@
         <div class="list-col wallet-icon-col">
           <i class="wallet-icon wallet-icon-list">&#xe607;</i>
         </div>
-        <div class="list-col list-middle">
+        <div class="list-col align-self-center">
           <h4 class="list-title">
             提现
           </h4>
@@ -45,7 +45,7 @@
         <div class="list-col wallet-icon-col">
           <i class="wallet-icon wallet-icon-list">&#xe606;</i>
         </div>
-        <div class="list-col list-middle">
+        <div class="list-col align-self-center">
           <h4 class="list-title">
             提现记录
           </h4>
@@ -59,7 +59,7 @@
       <div class="list-col wallet-icon-col">
         <i class="wallet-icon wallet-icon-list">&#xe615;</i>
       </div>
-      <div class="list-col list-middle">
+      <div class="list-col align-self-center">
         <h4 class="list-title">
           余额明细
         </h4>

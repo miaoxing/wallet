@@ -112,7 +112,7 @@
 
 <?= $block->js() ?>
 <script>
-  require(['form', 'plugins/app/js/validation'], function (form) {
+  require(['plugins/admin/js/form', 'plugins/app/js/validation'], function (form) {
     form.toOptions($('.js-type'), <?= json_encode(wei()->transaction->getConsts('type')) ?>, 'id', 'text');
 
     $('.js-transaction-form')

@@ -72,7 +72,7 @@ $wei->page->addAsset('comps/jasny-bootstrap/dist/css/jasny-bootstrap.min.css');
 
 <?= $block->js() ?>
 <script>
-  require(['plugins/admin/js/data-table', 'form','plugins/excel/js/excel',
+  require(['plugins/admin/js/data-table', 'plugins/admin/js/form','plugins/excel/js/excel',
     'comps/jasny-bootstrap/dist/js/jasny-bootstrap.min'], function () {
     var recordTable = $('.js-wallet-table').dataTable({
       sorting : [[0, 'desc']],

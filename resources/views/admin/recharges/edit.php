@@ -59,7 +59,7 @@
 
 <?= $block->js() ?>
 <script>
-  require(['form', 'plugins/app/js/validation', 'plugins/admin/js/spectrum'], function () {
+  require(['plugins/admin/js/form', 'plugins/app/js/validation', 'plugins/admin/js/spectrum'], function () {
     $('#recharge-form')
       .loadJSON(<?= $recharge ?>)
       .ajaxForm({

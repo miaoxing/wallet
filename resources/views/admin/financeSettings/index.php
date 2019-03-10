@@ -80,7 +80,7 @@
 
 <?= $block->js() ?>
 <script>
-  require(['form', 'ueditor', 'plugins/app/js/validation'], function () {
+  require(['plugins/admin/js/form', 'ueditor', 'plugins/app/js/validation'], function () {
     $('.js-setting-form')
       .loadJSON(<?= json_encode([
       'js-balance' => $setting('payments.balance') ?: '0',

@@ -45,7 +45,7 @@
       </div>
     </div>
   </div>
-  <div class="form-group form-footer">
+  <div class="form-footer">
     <button type="submit" class="btn btn-primary btn-block">提交</button>
   </div>
 </form>

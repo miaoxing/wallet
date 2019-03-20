@@ -1,48 +1,52 @@
-<?php $view->layout() ?>
+<?php
 
-<ul class="list list-condensed list-borderless">
-  <li class="list-item list-header d-flex">
-    <h4 class="list-title w-100">
-      提款
-      <span class="float-right small"><?= $transaction->getStatusName() ?></span>
-    </h4>
+$view->layout();
+?>
+
+<ul class="list list-indented">
+  <li class="list-item list-description">
+    <h4 class="list-title">状态：</h4>
+
+    <div class="list-detail">
+      <?= $transaction->getStatusName() ?>
+    </div>
   </li>
-  <li class="list-item d-flex border-top">
-    <label class="col-4 list-label">提款金额：</label>
+  <li class="list-item list-description">
+    <h4 class="list-title">提款金额：</h4>
 
-    <div class="col-8 list-content">
+    <div class="list-detail">
       <?= $transaction->getAbsAmount() ?>元
     </div>
   </li>
-  <li class="list-item d-flex">
-    <div class="col-4 list-label">申请时间：</div>
-    <div class="col-8 list-content">
+  <li class="list-item list-description">
+    <h4 class="list-title">申请时间：</h4>
+    <div class="list-detail">
       <?= substr($transaction['createTime'], 0, 16) ?>
     </div>
   </li>
-  <li class="list-item d-flex">
-    <div class="col-4 list-label">账户类型：</div>
-    <div class="col-8 list-content">
+  <li class="list-item list-description">
+    <h4 class="list-title">账户类型：</h4>
+    <div class="list-detail">
       <?= $transaction->getAccountTypeName() ?>
     </div>
   </li>
-  <li class="list-item d-flex">
-    <div class="col-4 list-label">审核结果：</div>
-    <div class="col-8 list-content">
+  <li class="list-item list-description">
+    <h4 class="list-title">审核结果：</h4>
+    <div class="list-detail">
       <?= $transaction->getAuditName() ?>
     </div>
   </li>
   <?php if ($transaction['passed']) : ?>
-    <li class="list-item d-flex">
-      <div class="col-4 list-label">转账时间：</div>
-      <div class="col-8 list-content">
+    <li class="list-item list-description">
+      <h4 class="list-title">转账时间：</h4>
+      <div class="list-detail">
         <?= substr($transaction['passTime'], 0, 16) ?>
       </div>
     </li>
   <?php endif ?>
-  <li class="list-item d-flex">
-    <div class="col-4 list-label">备注：</div>
-    <div class="col-8 list-content">
+  <li class="list-item list-description">
+    <h4 class="list-title">备注：</h4>
+    <div class="list-detail">
       <?= $transaction['note'] ?: '无' ?>
     </div>
   </li>

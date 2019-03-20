@@ -1,29 +1,32 @@
-<?php $view->layout() ?>
+<?php
 
-<ul class="list list-condensed list-borderless">
-  <li class="list-item list-header d-flex">
-    <h4 class="list-title w-100">
+$view->layout();
+?>
+
+<ul class="list list-indented">
+  <li class="list-item list-description list-description">
+    <h4 class="list-title">
       金额
-      <span class="float-right">
-        <?= $transaction['amount'] < 0 ? '-' : '' ?>¥<?= $transaction->getAbsAmount() ?>
-      </span>
     </h4>
+    <div class="list-detail">
+      <?= $transaction['amount'] < 0 ? '-' : '' ?>¥<?= $transaction->getAbsAmount() ?>
+    </div>
   </li>
-  <li class="list-item d-flex">
-    <div class="col-4 list-label">类型：</div>
-    <div class="col-8 list-content text-right pr-0">
+  <li class="list-item list-description">
+    <div class="list-title">类型：</div>
+    <div class="list-detail">
       <?= $transaction->getTypeText() ?>
     </div>
   </li>
-  <li class="list-item d-flex">
-    <div class="col-4 list-label">备注：</div>
-    <div class="col-8 list-content text-right pr-0">
+  <li class="list-item list-description">
+    <div class="list-title">备注：</div>
+    <div class="list-detail">
       <?= $transaction['note'] ?: '无' ?>
     </div>
   </li>
-  <li class="list-item d-flex">
-    <div class="col-4 list-label">创建时间：</div>
-    <div class="col-8 list-content text-right pr-0">
+  <li class="list-item list-description">
+    <div class="list-title">创建时间：</div>
+    <div class="list-detail">
       <?= $transaction['createTime'] ?>
     </div>
   </li>

@@ -50,7 +50,7 @@
   </div>
 </form>
 
-<p class="notice">
+<p class="text-xs text-muted m-2">
   注意：充值金额不能提现。
 </p>
 
